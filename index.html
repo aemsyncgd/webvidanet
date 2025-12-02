@@ -21,21 +21,18 @@
     
     <style>
         /* ============================================
-         * VARIABLES CSS Y RESETS GLOBALES - PALETA MEJORADA
+         * VARIABLES CSS Y RESETS GLOBALES
          * ============================================ */
         :root {
-            /* Paleta de colores más vibrante y moderna */
-            --color-primary: #0066FF;
-            --color-secondary: #00D97E;
-            --color-alternative: #2ED8B6;
-            --color-accent-purple: #7C3AED;
-            --color-accent-orange: #FF6B35;
-            --color-accent-pink: #FF006E;
-            --color-background-light: #F5F7FF;
-            --color-text-dark: #0F172A;
-            --color-gray-dark: #475569;
-            --color-gray-medium: #64748B;
-            --color-promo-accent: #FF6B35;
+            /* Colores - Tema Claro */
+            --color-primary: #1597E5;
+            --color-secondary: #3CCF4E;
+            --color-alternative: #61CE70;
+            --color-background-light: #F9F9F9;
+            --color-text-dark: #1A1A1A;
+            --color-gray-dark: #54595F;
+            --color-gray-medium: #7A7A7A;
+            --color-promo-accent: #F77E21;
             --color-whatsapp: #25D366;
             --color-white: #FFFFFF;
             --color-black: #000000;
@@ -76,25 +73,24 @@
             --transition-speed-slow: 0.6s;
             --transition-easing: cubic-bezier(0.4, 0, 0.2, 1);
             
-            /* Gradientes modernos y vibrantes */
-            --gradient-primary: linear-gradient(135deg, var(--color-primary), #0047B2);
-            --gradient-secondary: linear-gradient(135deg, var(--color-secondary), #00B86B);
-            --gradient-promo: linear-gradient(135deg, var(--color-accent-orange), var(--color-accent-pink));
-            --gradient-purple: linear-gradient(135deg, var(--color-accent-purple), var(--color-accent-pink));
-            --gradient-hero: linear-gradient(135deg, rgba(0, 102, 255, 0.9), rgba(0, 217, 126, 0.7));
+            /* Gradientes */
+            --gradient-primary: linear-gradient(135deg, var(--color-primary), #0C7BBF);
+            --gradient-secondary: linear-gradient(135deg, var(--color-secondary), #2EAE3D);
+            --gradient-promo: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            --gradient-hero: linear-gradient(135deg, rgba(21, 151, 229, 0.9), rgba(60, 207, 78, 0.7));
         }
 
         /* Tema Oscuro */
         .dark-theme {
-            --color-bg: #0A0E27;
-            --color-text: #F5F7FF;
-            --color-card-bg: #1A1F3A;
-            --color-header-bg: #0F172A;
-            --color-footer-bg: #050709;
-            --color-footer-text: #E2E8F0;
-            --color-cta-bg: #1A1F3A;
-            --color-cta-text: #F5F7FF;
-            --color-section-bg: #0F172A;
+            --color-bg: #0A0A0F;
+            --color-text: #F0F0F0;
+            --color-card-bg: #1A1A24;
+            --color-header-bg: #121218;
+            --color-footer-bg: #050509;
+            --color-footer-text: #CCCCCC;
+            --color-cta-bg: #121218;
+            --color-cta-text: #F0F0F0;
+            --color-section-bg: #121218;
             --shadow-subtle: 0 8px 30px rgba(0, 0, 0, 0.3);
             --shadow-card: 0 15px 40px rgba(0, 0, 0, 0.4);
             --shadow-elevated: 0 25px 50px rgba(0, 0, 0, 0.5);
@@ -152,10 +148,10 @@
             position: absolute;
             bottom: -10px;
             left: 0;
-            width: 100px;
-            height: 5px;
+            width: 80px;
+            height: 4px;
             background: var(--gradient-secondary);
-            border-radius: 3px;
+            border-radius: 2px;
         }
 
         h3 {
@@ -210,13 +206,6 @@
             transform: translateX(-50%);
         }
 
-        .highlight {
-            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
         /* ============================================
          * ANIMACIONES PERSONALIZADAS
          * ============================================ */
@@ -231,8 +220,8 @@
         }
 
         @keyframes glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(0, 102, 255, 0.3); }
-            50% { box-shadow: 0 0 30px rgba(0, 102, 255, 0.6); }
+            0%, 100% { box-shadow: 0 0 20px rgba(21, 151, 229, 0.3); }
+            50% { box-shadow: 0 0 30px rgba(21, 151, 229, 0.6); }
         }
 
         @keyframes slideInFromLeft {
@@ -268,7 +257,7 @@
         }
 
         /* ============================================
-         * BOTONES MEJORADOS
+         * BOTONES
          * ============================================ */
         .btn {
             display: inline-flex;
@@ -308,12 +297,12 @@
         .btn-primary {
             background: var(--gradient-primary);
             color: var(--color-white);
-            box-shadow: 0 10px 25px rgba(0, 102, 255, 0.4);
+            box-shadow: 0 10px 20px rgba(21, 151, 229, 0.3);
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(0, 102, 255, 0.5);
+            box-shadow: 0 15px 30px rgba(21, 151, 229, 0.4);
         }
 
         .btn-secondary {
@@ -331,36 +320,37 @@
         .btn-green {
             background: var(--gradient-secondary);
             color: var(--color-white);
-            box-shadow: 0 10px 25px rgba(0, 217, 126, 0.4);
+            box-shadow: 0 10px 20px rgba(60, 207, 78, 0.3);
         }
 
         .btn-green:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(0, 217, 126, 0.5);
+            box-shadow: 0 15px 30px rgba(60, 207, 78, 0.4);
         }
 
         .btn-whatsapp {
             background-color: var(--color-whatsapp);
             color: var(--color-white);
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
         }
 
         .btn-whatsapp:hover {
             background-color: #128C7E;
             transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.5);
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
         }
 
         .btn-pay {
-            background: var(--gradient-promo);
+            background-color: var(--color-promo-accent);
             color: var(--color-white);
             padding: 0.8rem 1.8rem;
-            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.4);
+            box-shadow: 0 8px 20px rgba(247, 126, 33, 0.3);
         }
 
         .btn-pay:hover {
+            background-color: #E06C1A;
             transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(255, 107, 53, 0.5);
+            box-shadow: 0 12px 25px rgba(247, 126, 33, 0.4);
         }
 
         .btn-lg {
@@ -369,7 +359,7 @@
         }
 
         /* ============================================
-         * HEADER MEJORADO
+         * HEADER
          * ============================================ */
         .header {
             position: fixed;
@@ -377,17 +367,17 @@
             left: 0;
             width: 100%;
             height: var(--header-height);
-            background: linear-gradient(180deg, var(--color-header-bg), rgba(255,255,255,0.8));
+            background-color: var(--color-header-bg);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            box-shadow: var(--shadow-subtle);
             z-index: 1000;
             transition: all var(--transition-speed) var(--transition-easing);
         }
 
         .header.scrolled {
             height: 70px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            box-shadow: var(--shadow-elevated);
         }
 
         .header-content {
@@ -429,7 +419,6 @@
             font-weight: var(--font-weight-medium);
             position: relative;
             padding: 0.5rem 0;
-            font-size: 1rem;
         }
 
         .nav-link::after {
@@ -438,10 +427,9 @@
             bottom: 0;
             left: 0;
             width: 0;
-            height: 3px;
+            height: 2px;
             background: var(--gradient-primary);
             transition: width var(--transition-speed) var(--transition-easing);
-            border-radius: 2px;
         }
 
         .nav-link:hover::after,
@@ -466,8 +454,7 @@
         }
 
         .theme-toggle:hover {
-            background-color: var(--color-primary);
-            color: var(--color-white);
+            background-color: rgba(21, 151, 229, 0.1);
             transform: rotate(15deg);
         }
 
@@ -496,11 +483,11 @@
         }
 
         .hamburger:hover {
-            background-color: rgba(0, 102, 255, 0.1);
+            background-color: rgba(21, 151, 229, 0.1);
         }
 
         /* ============================================
-         * HERO SECTION MEJORADA
+         * HERO SECTION
          * ============================================ */
         .hero {
             position: relative;
@@ -509,7 +496,7 @@
             align-items: center;
             overflow: hidden;
             padding-top: var(--header-height);
-            background: linear-gradient(135deg, #F5F7FF 0%, #EEF5FF 50%, #E0F2FE 100%);
+            background: linear-gradient(135deg, rgba(10, 10, 15, 0.9) 0%, rgba(21, 151, 229, 0.1) 100%);
         }
 
         .hero-bg-video {
@@ -529,7 +516,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(0, 102, 255, 0.05) 0%, rgba(0, 217, 126, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(21, 151, 229, 0.1) 0%, rgba(60, 207, 78, 0.05) 100%);
             z-index: -1;
         }
 
@@ -559,7 +546,7 @@
         .hero p {
             font-size: 1.3rem;
             margin-bottom: 2.5rem;
-            color: var(--color-gray-dark);
+            color: rgba(255, 255, 255, 0.9);
             max-width: 600px;
         }
 
@@ -584,13 +571,13 @@
         .stat-number {
             font-size: 2.5rem;
             font-weight: var(--font-weight-bold);
-            color: var(--color-primary);
+            color: var(--color-white);
             line-height: 1;
         }
 
         .stat-label {
             font-size: 0.9rem;
-            color: var(--color-gray-medium);
+            color: rgba(255, 255, 255, 0.7);
             margin-top: 0.5rem;
         }
 
@@ -604,7 +591,6 @@
             height: 400px;
             margin: 0 auto;
             position: relative;
-            filter: drop-shadow(0 10px 30px rgba(0, 102, 255, 0.2));
         }
 
         .gauge-label {
@@ -619,23 +605,20 @@
         .gauge-value {
             font-size: 4rem;
             font-weight: var(--font-weight-black);
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: var(--color-white);
             line-height: 1;
-            text-shadow: 0 0 20px rgba(0, 102, 255, 0.2);
+            text-shadow: 0 0 20px rgba(21, 151, 229, 0.5);
         }
 
         .gauge-unit {
             font-size: 1.5rem;
             font-weight: var(--font-weight-medium);
-            color: var(--color-gray-medium);
+            color: rgba(255, 255, 255, 0.8);
             margin-top: 0.5rem;
         }
 
         /* ============================================
-         * SECCIONES MEJORADAS
+         * SECCIONES
          * ============================================ */
         .section-title {
             margin-bottom: 3rem;
@@ -651,7 +634,7 @@
 
         /* Ventajas */
         .advantages {
-            background: linear-gradient(180deg, var(--color-bg), var(--color-section-bg));
+            background-color: var(--color-section-bg);
             position: relative;
             overflow: hidden;
         }
@@ -661,31 +644,30 @@
             position: absolute;
             top: -100px;
             right: -100px;
-            width: 400px;
-            height: 400px;
+            width: 300px;
+            height: 300px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--color-primary), var(--color-accent-purple));
-            opacity: 0.08;
-            filter: blur(60px);
+            background: var(--gradient-primary);
+            opacity: 0.05;
+            filter: blur(40px);
         }
 
         .advantages-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
+            gap: 2rem;
         }
 
         .advantage-card {
-            background: linear-gradient(135deg, var(--color-card-bg), rgba(255,255,255,0.5));
+            background-color: var(--color-card-bg);
             padding: 2.5rem 2rem;
             border-radius: var(--border-radius-base);
-            box-shadow: 0 10px 30px rgba(0, 102, 255, 0.08);
+            box-shadow: var(--shadow-card);
             text-align: center;
             transition: all var(--transition-speed) var(--transition-easing);
             position: relative;
             overflow: hidden;
             z-index: 1;
-            border: 1px solid rgba(0, 102, 255, 0.1);
         }
 
         .advantage-card::before {
@@ -695,14 +677,13 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background: var(--gradient-secondary);
+            background: var(--gradient-primary);
             z-index: 2;
         }
 
         .advantage-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 50px rgba(0, 102, 255, 0.15);
-            border-color: var(--color-primary);
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-elevated);
         }
 
         .advantage-icon {
@@ -710,10 +691,6 @@
             margin-bottom: 1.5rem;
             position: relative;
             display: inline-block;
-            background: var(--gradient-secondary);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
         }
 
         .advantage-icon::before {
@@ -722,22 +699,20 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 90px;
-            height: 90px;
-            background: var(--gradient-secondary);
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
             border-radius: 50%;
-            opacity: 0.15;
+            opacity: 0.1;
             z-index: -1;
         }
 
         .advantage-card h3 {
             margin-bottom: 1rem;
-            color: var(--color-text);
         }
 
         /* Promociones */
         .promotions {
-            background: linear-gradient(180deg, var(--color-section-bg), var(--color-bg));
             position: relative;
             overflow: hidden;
         }
@@ -747,44 +722,33 @@
             position: absolute;
             bottom: -100px;
             left: -100px;
-            width: 400px;
-            height: 400px;
+            width: 300px;
+            height: 300px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--color-secondary), var(--color-accent-orange));
-            opacity: 0.08;
-            filter: blur(60px);
+            background: var(--gradient-secondary);
+            opacity: 0.05;
+            filter: blur(40px);
         }
 
         .promotions-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
+            gap: 2rem;
         }
 
         .promo-card {
-            /* Gradientes más vibrantes para tarjetas de promociones */
-            background: linear-gradient(135deg, var(--color-accent-orange), var(--color-accent-pink));
+            background: var(--gradient-promo);
             color: var(--color-white);
-            padding: 3rem 2rem;
+            padding: 2.5rem 2rem;
             border-radius: var(--border-radius-base);
-            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.25);
+            box-shadow: var(--shadow-card);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            min-height: 360px;
+            min-height: 320px;
             transition: all var(--transition-speed) var(--transition-easing);
             position: relative;
             overflow: hidden;
-        }
-
-        .promo-card:nth-child(2) {
-            background: linear-gradient(135deg, var(--color-accent-purple), var(--color-accent-pink));
-            box-shadow: 0 15px 40px rgba(124, 58, 237, 0.25);
-        }
-
-        .promo-card:nth-child(3) {
-            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-            box-shadow: 0 15px 40px rgba(0, 102, 255, 0.25);
         }
 
         .promo-card::before {
@@ -794,7 +758,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.15) 50%, transparent 70%);
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
             transform: translateX(-100%);
             transition: transform 0.8s var(--transition-easing);
         }
@@ -804,68 +768,52 @@
         }
 
         .promo-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 25px 60px rgba(255, 107, 53, 0.35);
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-elevated);
         }
 
         .promo-badge {
             position: absolute;
             top: 1.5rem;
             right: 1.5rem;
-            background-color: rgba(255, 255, 255, 0.25);
+            background-color: var(--color-promo-accent);
             color: var(--color-white);
-            padding: 0.6rem 1.2rem;
+            padding: 0.5rem 1rem;
             border-radius: 50px;
             font-size: 0.8rem;
-            font-weight: var(--font-weight-bold);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
+            font-weight: var(--font-weight-semibold);
+            box-shadow: 0 4px 15px rgba(247, 126, 33, 0.3);
         }
 
         .promo-icon {
-            font-size: 3.5rem;
+            font-size: 3rem;
             margin-bottom: 1.5rem;
-            opacity: 0.95;
+            opacity: 0.9;
         }
 
         .promo-card h3 {
             color: var(--color-white);
-            font-size: 2rem;
+            font-size: 1.8rem;
             margin-bottom: 1rem;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
         }
 
         .promo-card p {
-            color: rgba(255, 255, 255, 0.95);
+            color: rgba(255, 255, 255, 0.9);
             margin-bottom: 1.5rem;
-            line-height: 1.6;
         }
 
         /* Planes */
         .plans {
-            background: linear-gradient(180deg, var(--color-bg), var(--color-section-bg));
+            background-color: var(--color-section-bg);
             position: relative;
             overflow: hidden;
         }
 
-        .plans::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            right: -100px;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background: var(--gradient-purple);
-            opacity: 0.06;
-            filter: blur(50px);
-        }
-
         .plan-card {
-            background: linear-gradient(135deg, var(--color-card-bg), rgba(255,255,255,0.5));
+            background-color: var(--color-card-bg);
             border-radius: var(--border-radius-lg);
             padding: 3rem 2rem;
-            box-shadow: 0 10px 35px rgba(0, 102, 255, 0.1);
+            box-shadow: var(--shadow-card);
             text-align: center;
             transition: all var(--transition-speed) var(--transition-easing);
             height: 100%;
@@ -873,7 +821,6 @@
             flex-direction: column;
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(0, 102, 255, 0.1);
         }
 
         .plan-card::before {
@@ -882,7 +829,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 6px;
+            height: 5px;
             background: var(--gradient-primary);
         }
 
@@ -892,20 +839,17 @@
         }
 
         .plan-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 20px 50px rgba(0, 102, 255, 0.2);
-            border-color: var(--color-primary);
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-elevated);
         }
 
         .plan-card.popular {
             border: 2px solid var(--color-secondary);
-            transform: scale(1.08);
-            box-shadow: 0 20px 50px rgba(0, 217, 126, 0.25);
+            transform: scale(1.05);
         }
 
         .plan-card.popular:hover {
-            transform: scale(1.08) translateY(-12px);
-            box-shadow: 0 30px 60px rgba(0, 217, 126, 0.35);
+            transform: scale(1.05) translateY(-10px);
         }
 
         .plan-popular-badge {
@@ -914,45 +858,38 @@
             right: 1.5rem;
             background: var(--gradient-secondary);
             color: var(--color-white);
-            padding: 0.6rem 1.2rem;
+            padding: 0.5rem 1rem;
             border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: var(--font-weight-bold);
-            box-shadow: 0 4px 15px rgba(0, 217, 126, 0.3);
+            font-size: 0.8rem;
+            font-weight: var(--font-weight-semibold);
+            box-shadow: 0 4px 15px rgba(60, 207, 78, 0.3);
         }
 
         .plan-header {
             margin-bottom: 2rem;
             padding-bottom: 2rem;
-            border-bottom: 2px solid rgba(0, 102, 255, 0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         }
 
         .dark-theme .plan-header {
-            border-bottom: 2px solid rgba(0, 102, 255, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .plan-name {
             font-size: 2rem;
             margin-bottom: 1rem;
-            color: var(--color-text);
         }
 
         .plan-speed {
             font-size: 3.5rem;
             font-weight: var(--font-weight-black);
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: var(--color-primary);
             line-height: 1;
             margin-bottom: 0.5rem;
         }
 
         .plan-card.popular .plan-speed {
-            background: var(--gradient-secondary);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: var(--color-secondary);
         }
 
         .plan-speed-label {
@@ -960,136 +897,165 @@
             font-size: 1rem;
         }
 
-        .vidaplay-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--color-accent-purple), var(--color-accent-pink));
-            color: var(--color-white);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: var(--font-weight-semibold);
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.25);
-        }
-
         .plan-features {
-            text-align: left;
-            margin-bottom: 2rem;
             flex-grow: 1;
+            margin-bottom: 2rem;
         }
 
         .plan-features ul {
-            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
         }
 
         .plan-features li {
-            font-size: 1rem;
-            margin-bottom: 1rem;
-            color: var(--color-gray-dark);
             display: flex;
-            align-items: flex-start;
-            gap: 1rem;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--color-gray-dark);
         }
 
         .plan-features i {
             color: var(--color-secondary);
             font-size: 1.2rem;
-            margin-top: 0.2rem;
-            flex-shrink: 0;
+        }
+
+        .vidaplay-badge {
+            display: inline-block;
+            background: rgba(60, 207, 78, 0.1);
+            color: var(--color-secondary);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: 2rem;
+            border: 1px solid rgba(60, 207, 78, 0.2);
         }
 
         .plan-actions {
             display: flex;
             flex-direction: column;
             gap: 1rem;
-            margin-top: auto;
+        }
+
+        /* Swiper */
+        .swiper {
+            padding: 3rem 0 5rem !important;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: var(--color-primary) !important;
+            width: 50px !important;
+            height: 50px !important;
+            background-color: var(--color-card-bg);
+            border-radius: 50%;
+            box-shadow: var(--shadow-subtle);
+            transition: all var(--transition-speed) var(--transition-easing);
+        }
+
+        .swiper-button-next:hover,
+        .swiper-button-prev:hover {
+            background-color: var(--color-primary);
+            color: var(--color-white) !important;
+            transform: scale(1.1);
+        }
+
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+            font-size: 1.2rem !important;
+        }
+
+        .swiper-pagination-bullet {
+            width: 12px !important;
+            height: 12px !important;
+            background-color: var(--color-gray-medium) !important;
+            opacity: 0.3 !important;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: var(--gradient-primary) !important;
+            opacity: 1 !important;
         }
 
         /* Testimonios */
-        .testimonials {
-            background: linear-gradient(180deg, var(--color-section-bg), var(--color-bg));
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background-color: var(--color-card-bg);
+            padding: 2.5rem 2rem;
+            border-radius: var(--border-radius-base);
+            box-shadow: var(--shadow-card);
+            border-left: 5px solid var(--color-secondary);
+            transition: all var(--transition-speed) var(--transition-easing);
             position: relative;
             overflow: hidden;
         }
 
-        .testimonials::before {
-            content: '';
-            position: absolute;
-            top: -100px;
-            right: -100px;
-            width: 400px;
-            height: 400px;
-            border-radius: 50%;
-            background: var(--gradient-secondary);
-            opacity: 0.08;
-            filter: blur(60px);
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .testimonial-card {
-            background: var(--color-card-bg);
-            padding: 2.5rem 2rem;
-            border-radius: var(--border-radius-base);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            border-left: 5px solid var(--color-secondary);
-            transition: all var(--transition-speed) var(--transition-easing);
-        }
-
         .testimonial-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0, 102, 255, 0.15);
-            border-left-color: var(--color-primary);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-elevated);
         }
 
         .testimonial-quote {
             font-style: italic;
+            margin-bottom: 1.5rem;
             color: var(--color-gray-dark);
-            margin-bottom: 2rem;
-            font-size: 1.05rem;
+            position: relative;
+            font-size: 1.1rem;
             line-height: 1.8;
+        }
+
+        .testimonial-quote::before {
+            content: "\201C";
+            font-size: 4rem;
+            color: var(--color-primary);
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            opacity: 0.2;
+            font-family: serif;
         }
 
         .testimonial-author {
             display: flex;
             align-items: center;
-            gap: 1.5rem;
+            gap: 1rem;
         }
 
         .author-avatar {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             background: var(--gradient-primary);
+            color: var(--color-white);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--color-white);
-            font-weight: var(--font-weight-bold);
             font-size: 1.5rem;
+            font-weight: var(--font-weight-bold);
+            flex-shrink: 0;
         }
 
         .author-info h4 {
-            margin-bottom: 0.2rem;
-            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+            font-size: 1.2rem;
         }
 
         .author-info p {
-            margin-bottom: 0;
-            font-size: 0.9rem;
             color: var(--color-gray-medium);
+            font-size: 0.9rem;
+            margin-bottom: 0;
         }
 
-        /* CTA Final */
+        /* CTA */
         .cta-final {
-            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            background: linear-gradient(135deg, var(--color-text-dark) 0%, #0A0A0F 100%);
             color: var(--color-white);
             text-align: center;
-            padding: 5rem 2rem;
             position: relative;
             overflow: hidden;
         }
@@ -1097,40 +1063,33 @@
         .cta-final::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 600px;
-            height: 600px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            filter: blur(40px);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%231597e5' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.3;
         }
 
         .cta-final h2 {
-            font-size: 3.2rem;
-            margin-bottom: 2rem;
             color: var(--color-white);
-        }
-
-        .cta-final h2::after {
-            background: rgba(255, 255, 255, 0.3);
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
         }
 
         .cta-final p {
+            color: rgba(255, 255, 255, 0.8);
             font-size: 1.3rem;
             margin-bottom: 3rem;
-            color: rgba(255, 255, 255, 0.95);
-            max-width: 600px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
         }
 
         .cta-actions {
-            position: relative;
-            z-index: 1;
             display: flex;
-            gap: 1.5rem;
             justify-content: center;
+            gap: 1.5rem;
             flex-wrap: wrap;
         }
 
@@ -1138,66 +1097,40 @@
         .footer {
             background-color: var(--color-footer-bg);
             color: var(--color-footer-text);
-            padding: 4rem 0 1rem;
+            padding: 5rem 0 2rem;
         }
 
         .footer-grid {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1fr;
             gap: 3rem;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
         }
 
         .footer-logo img {
             height: 40px;
-            width: auto;
             margin-bottom: 1.5rem;
-            opacity: 0.9;
+            filter: brightness(0) invert(1);
         }
 
         .footer-logo p {
-            font-size: 0.95rem;
-            margin-bottom: 2rem;
             color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
             line-height: 1.7;
         }
 
-        .social-icons {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .social-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--color-white);
-            transition: all var(--transition-speed) var(--transition-easing);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .social-icon:hover {
-            background: var(--gradient-primary);
-            transform: translateY(-5px);
-            border-color: transparent;
-        }
-
-        .footer-col h3 {
+        .footer-title {
+            font-size: 1.2rem;
+            font-weight: var(--font-weight-semibold);
             margin-bottom: 1.5rem;
-            font-size: 1.1rem;
             color: var(--color-white);
         }
 
         .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
         }
 
         .footer-links a {
@@ -1206,172 +1139,381 @@
         }
 
         .footer-links a:hover {
-            color: var(--color-white);
-            padding-left: 0.5rem;
+            color: var(--color-primary);
+            padding-left: 5px;
         }
 
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.9rem;
-        }
-
-        /* WhatsApp FAB */
-        .whatsapp-container {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 999;
+        .social-icons {
             display: flex;
-            flex-direction: column;
-            align-items: flex-end;
             gap: 1rem;
+            margin-top: 1.5rem;
         }
 
-        .whatsapp-fab {
-            width: 60px;
-            height: 60px;
+        .social-icon {
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
-            background-color: var(--color-whatsapp);
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--color-white);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--color-white);
-            font-size: 2rem;
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            font-size: 1.2rem;
             transition: all var(--transition-speed) var(--transition-easing);
-            animation: float 3s ease-in-out infinite;
         }
 
-        .whatsapp-fab:hover {
-            transform: scale(1.15);
+        .social-icon:hover {
+            background-color: var(--color-primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* WhatsApp Container */
+        .whatsapp-container {
+            position: fixed;
+            right: 2rem;
+            bottom: 2rem;
+            z-index: 1000;
+        }
+
+        .whatsapp-fab {
+            width: 64px;
+            height: 64px;
+            background-color: var(--color-whatsapp);
+            color: var(--color-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            cursor: pointer;
+            transition: all var(--transition-speed) var(--transition-easing);
+            border: none;
+            outline: none;
+            position: relative;
+            z-index: 2;
+        }
+
+        .whatsapp-fab:hover,
+        .whatsapp-fab:focus {
+            background-color: #128C7E;
+            transform: scale(1.1);
             box-shadow: 0 12px 35px rgba(37, 211, 102, 0.6);
         }
 
         .whatsapp-tooltip {
-            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-            color: var(--color-white);
+            position: absolute;
+            right: 80px;
+            bottom: 10px;
+            background-color: var(--color-white);
+            color: var(--color-text-dark);
             padding: 1rem 1.5rem;
-            border-radius: 12px;
+            border-radius: var(--border-radius-base);
+            box-shadow: var(--shadow-elevated);
+            width: 280px;
+            text-align: left;
             font-size: 0.95rem;
+            font-weight: var(--font-weight-medium);
             opacity: 0;
             visibility: hidden;
-            transition: all 0.3s ease;
-            max-width: 280px;
-            white-space: wrap;
-            box-shadow: 0 8px 25px rgba(0, 102, 255, 0.3);
+            transform: translateX(20px);
+            transition: all var(--transition-speed) var(--transition-easing);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .dark-theme .whatsapp-tooltip {
+            background-color: var(--color-card-bg);
+            color: var(--color-text);
+        }
+
+        .whatsapp-tooltip::after {
+            content: '';
+            position: absolute;
+            right: -8px;
+            bottom: 20px;
+            border-width: 8px;
+            border-style: solid;
+            border-color: transparent transparent transparent var(--color-white);
+        }
+
+        .dark-theme .whatsapp-tooltip::after {
+            border-color: transparent transparent transparent var(--color-card-bg);
         }
 
         .whatsapp-container:hover .whatsapp-tooltip {
             opacity: 1;
             visibility: visible;
+            transform: translateX(0);
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-list {
-                display: none;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
+        /* ============================================
+         * RESPONSIVE DESIGN
+         * ============================================ */
+        @media (max-width: 1200px) {
             .hero-content {
                 grid-template-columns: 1fr;
+                text-align: center;
+                gap: 3rem;
             }
+            
+            .hero-text {
+                animation: fadeInUp 1s var(--transition-easing) 0.3s both;
+            }
+            
+            .hero-visual {
+                animation: fadeInUp 1s var(--transition-easing) 0.5s both;
+            }
+            
+            .hero-stats {
+                justify-content: center;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
 
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            h2 {
+                font-size: 2.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+            
             .gauge-container {
-                width: 300px;
-                height: 300px;
+                width: 320px;
+                height: 320px;
             }
+            
+            .gauge-value {
+                font-size: 3.2rem;
+            }
+            
+            .swiper-button-next,
+            .swiper-button-prev {
+                display: none !important;
+            }
+        }
 
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+            
+            section {
+                padding: 4rem 0;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
             .hero h1 {
                 font-size: 2.5rem;
             }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-actions .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .gauge-container {
+                width: 280px;
+                height: 280px;
+            }
+            
+            .gauge-value {
+                font-size: 2.8rem;
+            }
+            
+            .hamburger {
+                display: flex;
+            }
+            
+            .nav-list {
+                position: fixed;
+                top: var(--header-height);
+                left: 0;
+                width: 100%;
+                background-color: var(--color-header-bg);
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem;
+                box-shadow: var(--shadow-elevated);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all var(--transition-speed) var(--transition-easing);
+                z-index: 999;
+            }
+            
+            .nav-list.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-list li {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .nav-link {
+                display: block;
+                padding: 1rem 0;
+                font-size: 1.1rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .social-icons {
+                justify-content: center;
+            }
+            
+            .cta-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-actions .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .whatsapp-container {
+                right: 1.5rem;
+                bottom: 1.5rem;
+            }
+            
+            .whatsapp-tooltip {
+                width: calc(100vw - 4rem);
+                right: auto;
+                left: 50%;
+                transform: translateX(-50%) translateY(20px);
+                bottom: 80px;
+            }
+            
+            .whatsapp-tooltip::after {
+                right: auto;
+                left: 50%;
+                bottom: -16px;
+                transform: translateX(-50%);
+                border-color: var(--color-white) transparent transparent transparent;
+            }
+            
+            .dark-theme .whatsapp-tooltip::after {
+                border-color: var(--color-card-bg) transparent transparent transparent;
+            }
+            
+            .whatsapp-container:hover .whatsapp-tooltip {
+                transform: translateX(-50%) translateY(0);
+            }
+        }
 
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .gauge-container {
+                width: 240px;
+                height: 240px;
+            }
+            
+            .gauge-value {
+                font-size: 2.2rem;
+            }
+            
             .advantages-grid,
             .promotions-grid,
             .testimonials-grid {
                 grid-template-columns: 1fr;
             }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-
+            
             .plan-card.popular {
-                transform: scale(1);
+                transform: none;
             }
-
+            
             .plan-card.popular:hover {
-                transform: translateY(-12px);
-            }
-
-            .cta-actions {
-                flex-direction: column;
-            }
-
-            .whatsapp-container {
-                bottom: 20px;
-                right: 20px;
-            }
-
-            .whatsapp-fab {
-                width: 55px;
-                height: 55px;
-                font-size: 1.8rem;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            h2 {
-                font-size: 2rem;
-            }
-
-            .section-title {
-                margin-bottom: 2rem;
-            }
-
-            .hero-visual {
-                display: none;
-            }
-
-            .hero-content {
-                padding: 0 1rem;
+                transform: translateY(-10px);
             }
         }
     </style>
 </head>
-<body class="light-theme">
+<body>
     <!-- Header -->
-    <header class="header">
+    <header class="header" role="banner">
         <div class="header-content">
-            <div class="logo">
-                <img src="https://vidanet.com.ve/wp-content/uploads/2022/10/logohb-300x86.png" alt="Logo de VidaNet">
-            </div>
+            <a href="#inicio" class="logo" aria-label="VidaNet - Volver a Inicio">
+                <img src="https://vidanet.com.ve/wp-content/uploads/2022/10/logohb-300x86.png" alt="Logo de VidaNet Fibra Óptica">
+            </a>
             
-            <nav class="nav-menu">
+            <nav class="nav-menu" role="navigation" aria-label="Menú principal">
                 <ul class="nav-list" id="navList">
-                    <li><a href="#hero" class="nav-link active">Inicio</a></li>
+                    <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+                    <li><a href="#ventajas" class="nav-link">Ventajas</a></li>
                     <li><a href="#promociones" class="nav-link">Promociones</a></li>
                     <li><a href="#planes" class="nav-link">Planes</a></li>
                     <li><a href="#testimonios" class="nav-link">Testimonios</a></li>
-                    <li><a href="https://pagos.vidanet.net" class="nav-link" target="_blank" rel="noopener noreferrer">Pagar Servicio</a></li>
                 </ul>
+                
+                <a href="https://pagos.vidanet.net" class="btn btn-pay" target="_blank" rel="noopener noreferrer" aria-label="Pagar servicio de VidaNet">
+                    <i class="fas fa-credit-card" aria-hidden="true"></i> Pagar Servicio
+                </a>
                 
                 <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
                     <i class="fas fa-sun"></i>
                     <i class="fas fa-moon"></i>
                 </button>
                 
-                <button class="hamburger" id="hamburgerBtn" aria-label="Menú" aria-expanded="false">
+                <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="navList">
                     <i class="fas fa-bars"></i>
                 </button>
             </nav>
@@ -1379,46 +1521,789 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero" id="hero">
+    <section class="hero" id="inicio">
+        <video autoplay muted loop playsinline class="hero-bg-video">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-geometric-shapes-connecting-8k-33359-large.mp4" type="video/mp4">
+        </video>
         <div class="hero-overlay"></div>
+        
         <div class="hero-content">
             <div class="hero-text">
-                <h1>La conexión que impulsa tu vida</h1>
-                <p>Más que internet, te brindamos la estabilidad y velocidad que necesitas para trabajar, aprender y entretenerte sin límites.</p>
+                <h1 data-aos="fade-up" data-aos-delay="100">La conexión que <span class="highlight">impulsa tu vida</span></h1>
+                <p data-aos="fade-up" data-aos-delay="200">Más que internet, te brindamos la estabilidad y velocidad que necesitas para trabajar, aprender y entretenerte sin límites.</p>
                 
-                <div class="hero-actions">
-                    <a href="#planes" class="btn btn-primary btn-lg">Ver Planes</a>
-                    <a href="tel:08008432638" class="btn btn-secondary btn-lg">Llámanos Gratis</a>
+                <div class="hero-actions" data-aos="fade-up" data-aos-delay="300">
+                    <a href="#planes" class="btn btn-primary btn-lg">
+                        <i class="fas fa-bolt" aria-hidden="true"></i> Ver Planes
+                    </a>
+                    <a href="tel:08008432638" class="btn btn-secondary btn-lg">
+                        <i class="fas fa-phone-alt" aria-hidden="true"></i> Llámanos Gratis
+                    </a>
                 </div>
                 
-                <div class="hero-stats">
+                <div class="hero-stats" data-aos="fade-up" data-aos-delay="400">
                     <div class="stat">
-                        <div class="stat-number">1000</div>
-                        <div class="stat-label">Mbps máximos</div>
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Fibra Óptica</div>
                     </div>
                     <div class="stat">
                         <div class="stat-number">24/7</div>
-                        <div class="stat-label">Soporte técnico</div>
+                        <div class="stat-label">Soporte Técnico</div>
                     </div>
                     <div class="stat">
-                        <div class="stat-number">100%</div>
-                        <div class="stat-label">Fibra óptica</div>
+                        <div class="stat-number">+50K</div>
+                        <div class="stat-label">Clientes Satisfechos</div>
                     </div>
                 </div>
             </div>
             
             <div class="hero-visual">
-                <div class="gauge-container">
-                    <canvas id="speedGauge" width="400" height="400"></canvas>
+                <div class="gauge-container" data-aos="zoom-in" data-aos-delay="500">
+                    <canvas id="speedGauge" width="400" height="400" role="img" aria-label="Medidor de velocidad de fibra óptica mostrando 1000 Mbps"></canvas>
                     <div class="gauge-label">
                         <div class="gauge-value" id="gaugeValue">0</div>
-                        <div class="gauge-unit">Mbps</div>
+                        <div class="gauge-unit">Mbps de descarga</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Ventajas -->
+    <section class="advantages" id="ventajas">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">¿Por qué elegir la <span class="highlight">Fibra Óptica</span> de VidaNet?</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Descubre las ventajas que hacen de VidaNet la mejor opción para tu conexión a internet</p>
+            
+            <div class="advantages-grid">
+                <div class="advantage-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="advantage-icon">
+                        <i class="fas fa-bolt" aria-hidden="true"></i>
+                    </div>
+                    <h3>Fibra Óptica 100%</h3>
+                    <p>Conexión directa hasta tu hogar o empresa, sin pérdidas de velocidad y máxima estabilidad en todo momento.</p>
+                </div>
+                
+                <div class="advantage-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="advantage-icon">
+                        <i class="fas fa-headset" aria-hidden="true"></i>
+                    </div>
+                    <h3>Soporte 24/7</h3>
+                    <p>Atención técnica permanente todos los días del año para resolver cualquier incidencia con rapidez y eficiencia.</p>
+                </div>
+                
+                <div class="advantage-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="advantage-icon">
+                        <i class="fas fa-rocket" aria-hidden="true"></i>
+                    </div>
+                    <h3>Instalación Express</h3>
+                    <p>Programamos y dejamos todo listo en tiempo récord, con la mejor tecnología y profesionales certificados.</p>
+                </div>
+                
+                <div class="advantage-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="advantage-icon">
+                        <i class="fas fa-tv" aria-hidden="true"></i>
+                    </div>
+                    <h3>Vidaplay TV Incluido</h3>
+                    <p>Servicio de streaming con múltiples pantallas según tu plan, contenido exclusivo para toda la familia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promociones -->
+    <section class="promotions" id="promociones">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">Aprovecha nuestras <span class="highlight">Promociones</span> Especiales</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Ofertas exclusivas por tiempo limitado para que disfrutes de la mejor conexión</p>
+            
+            <div class="promotions-grid">
+                <div class="promo-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="promo-badge">LIMITADO</div>
+                    <div class="promo-icon">
+                        <i class="fas fa-wifi" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                        <h3>Router Wi-Fi 6 ¡Gratis!</h3>
+                        <p>Contrata cualquier plan superior a 500 Mbps y recibe un router de última generación sin costo adicional.</p>
+                    </div>
+                    <a href="https://pagos.vidanet.net" class="btn btn-green" target="_blank" rel="noopener noreferrer">¡Lo quiero!</a>
+                </div>
+                
+                <div class="promo-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="promo-badge">NAVIDAD 2025</div>
+                    <div class="promo-icon">
+                        <i class="fas fa-gift" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                        <h3>Doble Velocidad 3 Meses</h3>
+                        <p>Por los primeros 3 meses, disfruta del doble de velocidad de tu plan contratado. ¡Oferta de temporada!</p>
+                    </div>
+                    <a href="https://pagos.vidanet.net" class="btn btn-green" target="_blank" rel="noopener noreferrer">Ver detalles</a>
+                </div>
+                
+                <div class="promo-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="promo-badge">EXCLUSIVO</div>
+                    <div class="promo-icon">
+                        <i class="fas fa-bolt" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                        <h3>Sin Cuota de Activación</h3>
+                        <p>Olvídate de los costos iniciales. Instalación y configuración 100% gratis por tiempo limitado.</p>
+                    </div>
+                    <a href="https://pagos.vidanet.net" class="btn btn-green" target="_blank" rel="noopener noreferrer">Contratar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Planes -->
+    <section class="plans" id="planes">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">Planes de <span class="highlight">Fibra Óptica</span> + Vidaplay TV</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Elige el plan perfecto para tu hogar o empresa. Todos incluyen servicio de TV con múltiples pantallas.</p>
+            
+            <div class="swiper plansSwiper" data-aos="zoom-in-up" data-aos-delay="200">
+                <div class="swiper-wrapper">
+                    <!-- Plan Contigo -->
+                    <div class="swiper-slide">
+                        <div class="plan-card">
+                            <div class="plan-header">
+                                <h3 class="plan-name">Contigo</h3>
+                                <div class="plan-speed">400</div>
+                                <div class="plan-speed-label">Mbps simétricos</div>
+                            </div>
+                            <div class="vidaplay-badge">Vidaplay: 2 pantallas</div>
+                            <div class="plan-features">
+                                <ul>
+                                    <li><i class="fas fa-check-circle" aria-hidden="true"></i> Ideal para hogares pequeños</li>
+                                    <li><i class="fas fa-check-circle" aria-hidden="true"></i> Fibra óptica 100% dedicada</li>
+                                    <li><i class="fas fa-check-circle" aria-hidden="true"></i> Gaming y streaming básicos</li>
+                                    <li><i class="fas fa-check-circle" aria-hidden="true"></i> Router Wi-Fi 5 incluido</li>
+                                </ul>
+                            </div>
+                            <div class="plan-actions">
+                                <a href="https://pagos.vidanet.net" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Contratar</a>
+                                <a href="tel:08008432638" class="btn btn-secondary">
+                                    <i class="fas fa-phone-alt" aria-hidden="true"></i> Llámanos
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Plan Intro -->
+                    <div class="swiper-slide">
+                        <div class="plan-card">
+                            <div class="plan-header">
+                                <h3 class="plan-name">Intro</h3>
+                                <div class="plan-speed">500</div>
+                                <div class="plan-speed-label">Mbps simétricos</div>
+                            </div>
+                            <div class="vidaplay-badge">Vidaplay: 3 pantallas</div>
+                            <div class="plan-features">
+                                <ul>
+                                    <li><i class="fas fa-check-circle" aria-hidden="true"></i> Suficiente para teletrabajo</li>
+                                    <li><i class="fas fa-check-circle" aria-hidden="true"></i> Router Wi-Fi 6 opcional</li>
+                                    <li><i class="fas fa-check-circle" aria-hidden="true"></i> Estabilidad garantizada</li>
+                                    <li><i class="fas fa-check-circle" aria-hidden="true"></i> Soporte prioritario</li>
+                                </ul>
+                            </div>
+                            <div class="plan-actions">
+                                <a href="https://pagos.vidanet.net" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Contratar</a>
+                                <a href="tel:08008432638" class="btn btn-secondary">
+                                    <i class="fas fa-phone-alt" aria-hidden="true"></i> Llámanos
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Plan Ideal -->
+                    <div class="swiper-slide">
+                        <div class="plan-card popular">
+                            <div class="plan-popular-badge">MÁS POPULAR</div>
+                            <div class="plan-header">
+                                <h3 class="plan-name">Ideal</h3>
+                                <div class="plan-speed">600</div>
+                                <div class="plan-speed-label">Mbps simétricos</div>
+                            </div>
+                            <div class="vidaplay-badge">Vidaplay: 4 pantallas</div>
+                            <div class="plan-features">
+                                <ul>
+                                    <li><i class="fas fa-check-circle" aria-hidden="true"></i> <strong>Recomendado para familias</strong></li>
+                                    <li><i class="fas fa-check-circle" aria-hidden="true"></i> Múltiples dispositivos conectados</li>
+                                    <li><i class="fas fa-check-circle" aria-hidden="true"></i> Descargas ultra rápidas</li>
+                                    <li><i class="fas fa-check-circle" aria-hidden="true"></i> Router Wi-Fi 6 incluido</li>
+                                </ul>
+                            </div>
+                            <div class="plan-actions">
+                                <a href="https://pagos.vidanet.net" class="btn btn-green" target="_blank" rel="noopener noreferrer">Contratar</a>
+                                <a href="tel:08008432638" class="btn btn-secondary">
+                                    <i class="fas fa-phone-alt" aria-hidden="true"></i> Llámanos
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Plan Recargado -->
+                    <div class="swiper-slide">
+                        <div class="plan-card">
+                            <div class="plan-header">
+                                <h3 class="plan-name">Recargado</h3>
+                                <div class="plan-speed">800</div>
+                                <div class="plan-speed-label">Mbps simétricos</div>
+                            </div>
+                            <div class="vidaplay-badge">Vidaplay: 5 pantallas</div>
+                            <div class="plan-features">
+                                <ul>
+                                    <li><i class="fas fa-check-circle" aria-hidden="true"></i> Para gamers y creadores</li>
+                                    <li><i class="fas fa-check-circle" aria-hidden="true"></i> Velocidad simétrica premium</li>
+                                    <li><i class="fas fa-check-circle" aria-hidden="true"></i> Máximo rendimiento sin lag</li>
+                                    <li><i class="fas fa-check-circle" aria-hidden="true"></i> Router Wi-Fi 6 Pro</li>
+                                </ul>
+                            </div>
+                            <div class="plan-actions">
+                                <a href="https://pagos.vidanet.net" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Contratar</a>
+                                <a href="tel:08008432638" class="btn btn-secondary">
+                                    <i class="fas fa-phone-alt" aria-hidden="true"></i> Llámanos
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Plan Ultra -->
+                    <div class="swiper-slide">
+                        <div class="plan-card">
+                            <div class="plan-header">
+                                <h3 class="plan-name">Ultra</h3>
+                                <div class="plan-speed">1000</div>
+                                <div class="plan-speed-label">Mbps simétricos</div>
+                            </div>
+                            <div class="vidaplay-badge">Vidaplay: 6 pantallas</div>
+                            <div class="plan-features">
+                                <ul>
+                                    <li><i class="fas fa-check-circle" aria-hidden="true"></i> Máxima velocidad disponible</li>
+                                    <li><i class="fas fa-check-circle" aria-hidden="true"></i> Garantía de servicio premium</li>
+                                    <li><i class="fas fa-check-circle" aria-hidden="true"></i> Sin límites, cliente exigente</li>
+                                    <li><i class="fas fa-check-circle" aria-hidden="true"></i> Router Wi-Fi 6E Mesh</li>
+                                </ul>
+                            </div>
+                            <div class="plan-actions">
+                                <a href="https://pagos.vidanet.net" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Contratar</a>
+                                <a href="tel:08008432638" class="btn btn-secondary">
+                                    <i class="fas fa-phone-alt" aria-hidden="true"></i> Llámanos
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+            
+            <p class="text-center" style="margin-top: 3rem; color: var(--color-gray-medium); font-size: 0.9rem;" data-aos="fade-up">
+                *Vidaplay es un servicio exclusivo para clientes de VidaNet, requiere conexión a la red de fibra del cliente, y permite múltiples pantallas según el plan.
+            </p>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="testimonials" id="testimonios">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">Lo que nuestros clientes dicen de <span class="highlight">VidaNet</span></h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Experiencias reales de personas que ya disfrutan de la mejor conexión</p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <p class="testimonial-quote">"Después de años con problemas de conexión, VidaNet cambió completamente mi experiencia. La velocidad es constante y el soporte técnico es inmediato. ¡Adiós al lag!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">M</div>
+                        <div class="author-info">
+                            <h4>María González</h4>
+                            <p>Valencia, Carabobo · Cliente desde 2022</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <p class="testimonial-quote">"Trabajo desde casa y necesito máxima estabilidad. El plan de 600 Mbps es perfecto, las videollamadas son fluidas y Vidaplay es un plus genial para la familia."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">A</div>
+                        <div class="author-info">
+                            <h4>Andrés López</h4>
+                            <p>Guacara, Carabobo · Cliente desde 2023</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+                    <p class="testimonial-quote">"Excelente servicio al cliente. Me instalaron el router en un día y me explicaron todo el proceso. Los recomiendo 100% por su profesionalismo y calidad."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">C</div>
+                        <div class="author-info">
+                            <h4>Carla Rodríguez</h4>
+                            <p>San Diego, Carabobo · Cliente desde 2024</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-final">
+        <div class="container">
+            <h2 data-aos="fade-up">¿Listo para la mejor <span class="highlight">conexión</span> de tu vida?</h2>
+            <p data-aos="fade-up" data-aos-delay="100">Contáctanos hoy mismo y un asesor te ayudará a elegir el plan perfecto para ti. ¡Conéctate al futuro con VidaNet!</p>
+            
+            <div class="cta-actions" data-aos="fade-up" data-aos-delay="200">
+                <a href="tel:08008432638" class="btn btn-primary btn-lg">
+                    <i class="fas fa-phone-alt" aria-hidden="true"></i> Llamar a un Asesor
+                </a>
+                <a href="https://wa.me/584121234567" class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-whatsapp" aria-hidden="true"></i> Chatear por WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <img src="https://vidanet.com.ve/wp-content/uploads/2022/10/logohb-300x86.png" alt="Logo de VidaNet">
+                    <p>La conexión que impulsa tu vida. Estabilidad y velocidad con fibra óptica 100%. Servicios FTTH y FTTB para hogares y empresas en Venezuela.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon" aria-label="Facebook de VidaNet">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Instagram de VidaNet">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Twitter de VidaNet">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="YouTube de VidaNet">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Servicios</h3>
+                    <ul class="footer-links">
+                        <li><a href="#planes">Planes Hogar</a></li>
+                        <li><a href="#">Planes Empresariales</a></li>
+                        <li><a href="#">Vidaplay TV</a></li>
+                        <li><a href="https://pagos.vidanet.net" target="_blank" rel="noopener noreferrer">Pagar Factura</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Soporte</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Centro de Ayuda</a></li>
+                        <li><a href="tel:08008432638">Llámanos (0800-VidaNet)</a></li>
+                        <li><a href="https://wa.me/584121234567" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+                        <li><a href="#">Preguntas Frecuentes</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Empresa</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Acerca de Nosotros</a></li>
+                        <li><a href="#">Cobertura</a></li>
+                        <li><a href="#">Términos y Condiciones</a></li>
+                        <li><a href="#">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> VidaNet Fibra Óptica C.A. · Guacara, Carabobo, Venezuela · Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Container -->
+    <div class="whatsapp-container">
+        <a href="https://wa.me/584121234567" class="whatsapp-fab" target="_blank" rel="noopener noreferrer" aria-label="Chatear con VidaNet por WhatsApp" id="whatsappFab">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <div class="whatsapp-tooltip" role="status" aria-live="polite">
+            Hola, soy Vivian, tu asistente virtual. ¿En qué puedo ayudarte hoy?
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     
+    <script>
+        // Inicializar AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            easing: 'ease-out-cubic',
+            offset: 100,
+            delay: 100
+        });
+
+        // Inicializar Swiper
+        const swiper = new Swiper('.plansSwiper', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: false,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                },
+            },
+        });
+
+        // Variables globales
+        const body = document.body;
+        const themeToggle = document.getElementById('themeToggle');
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const navList = document.getElementById('navList');
+        const currentYearSpan = document.getElementById('currentYear');
+        const header = document.querySelector('.header');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const speedGauge = document.getElementById('speedGauge');
+        const gaugeValue = document.getElementById('gaugeValue');
+
+        // Año actual
+        currentYearSpan.textContent = new Date().getFullYear();
+
+        // Menú hamburguesa
+        hamburgerBtn.addEventListener('click', () => {
+            navList.classList.toggle('active');
+            hamburgerBtn.setAttribute('aria-expanded', navList.classList.contains('active'));
+            hamburgerBtn.innerHTML = navList.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navList.classList.remove('active');
+                hamburgerBtn.setAttribute('aria-expanded', 'false');
+                hamburgerBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Sistema de tema
+        function getThemePreference() {
+            const storedTheme = localStorage.getItem('vidanet-theme');
+            if (storedTheme) return storedTheme;
+            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+
+        function setTheme(theme) {
+            body.className = theme === 'dark' ? 'dark-theme' : 'light-theme';
+            localStorage.setItem('vidanet-theme', theme);
+            themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro');
+            
+            // Disparar evento para que otros componentes se actualicen
+            window.dispatchEvent(new CustomEvent('themechange', { detail: { theme } }));
+        }
+
+        function toggleTheme() {
+            const currentTheme = body.classList.contains('dark-theme') ? 'dark' : 'light';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            setTheme(newTheme);
+            
+            // Animación del botón
+            themeToggle.style.transform = 'scale(0.8) rotate(180deg)';
+            setTimeout(() => {
+                themeToggle.style.transform = 'scale(1) rotate(0)';
+            }, 300);
+        }
+
+        // Inicializar tema
+        setTheme(getThemePreference());
+
+        // Eventos del tema
+        themeToggle.addEventListener('click', toggleTheme);
+        themeToggle.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleTheme();
+            }
+        });
+
+        // Header con scroll
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll con offset
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerHeight = header.offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Actualizar link activo
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        // Observer para actualizar links activos
+        const sections = document.querySelectorAll('section[id]');
+        const observerOptions = {
+            root: null,
+            rootMargin: '-50% 0px -50% 0px',
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => observer.observe(section));
+
+        // Gauge Animation
+        function animateGauge() {
+            const canvas = speedGauge;
+            const ctx = canvas.getContext('2d');
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            const radius = Math.min(centerX, centerY) - 30;
+            
+            let startTime = null;
+            const duration = 1800;
+            const maxSpeed = 1000;
+            
+            // Easing function
+            function easeOutElastic(t) {
+                return t === 0 ? 0 : 
+                       t === 1 ? 1 : 
+                       Math.pow(2, -10 * t) * Math.sin((t * 10 - 0.75) * (2 * Math.PI) / 3) + 1;
+            }
+            
+            function drawGauge(progress) {
+                // Limpiar canvas
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                // Obtener colores
+                const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--color-primary').trim();
+                const secondaryColor = getComputedStyle(document.documentElement).getPropertyValue('--color-secondary').trim();
+                
+                // Calcular ángulo
+                const startAngle = -Math.PI;
+                const endAngle = 0;
+                const currentAngle = startAngle + (endAngle - startAngle) * progress;
+                
+                // Dibujar arco de fondo
+                ctx.beginPath();
+                ctx.arc(centerX, centerY, radius, startAngle, endAngle);
+                ctx.lineWidth = 25;
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+                ctx.stroke();
+                
+                // Crear gradiente
+                const gradient = ctx.createLinearGradient(0, centerY, canvas.width, centerY);
+                gradient.addColorStop(0, primaryColor);
+                gradient.addColorStop(1, secondaryColor);
+                
+                // Dibujar arco de progreso
+                ctx.beginPath();
+                ctx.arc(centerX, centerY, radius, startAngle, currentAngle);
+                ctx.lineWidth = 25;
+                ctx.strokeStyle = gradient;
+                ctx.lineCap = 'round';
+                ctx.stroke();
+                
+                // Dibujar marcas
+                for (let i = 0; i <= 1000; i += 100) {
+                    const angle = startAngle + (endAngle - startAngle) * (i / 1000);
+                    const x1 = centerX + (radius - 15) * Math.cos(angle);
+                    const y1 = centerY + (radius - 15) * Math.sin(angle);
+                    const x2 = centerX + (radius - 5) * Math.cos(angle);
+                    const y2 = centerY + (radius - 5) * Math.sin(angle);
+                    
+                    ctx.beginPath();
+                    ctx.moveTo(x1, y1);
+                    ctx.lineTo(x2, y2);
+                    ctx.lineWidth = i % 200 === 0 ? 3 : 1;
+                    ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
+                    ctx.stroke();
+                    
+                    // Etiquetas
+                    if (i % 200 === 0) {
+                        const labelX = centerX + (radius - 35) * Math.cos(angle);
+                        const labelY = centerY + (radius - 35) * Math.sin(angle);
+                        
+                        ctx.font = '14px Poppins';
+                        ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'middle';
+                        ctx.fillText(i.toString(), labelX, labelY);
+                    }
+                }
+                
+                // Dibujar aguja
+                const needleLength = radius - 40;
+                const needleX = centerX + needleLength * Math.cos(currentAngle);
+                const needleY = centerY + needleLength * Math.sin(currentAngle);
+                
+                ctx.beginPath();
+                ctx.moveTo(centerX, centerY);
+                ctx.lineTo(needleX, needleY);
+                ctx.lineWidth = 4;
+                ctx.strokeStyle = '#FFFFFF';
+                ctx.stroke();
+                
+                // Centro de la aguja
+                ctx.beginPath();
+                ctx.arc(centerX, centerY, 10, 0, Math.PI * 2);
+                ctx.fillStyle = '#FFFFFF';
+                ctx.fill();
+            }
+            
+            function animate(timestamp) {
+                if (!startTime) startTime = timestamp;
+                const elapsed = timestamp - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const easedProgress = easeOutElastic(progress);
+                
+                // Calcular valor actual
+                const currentSpeed = Math.round(maxSpeed * easedProgress);
+                
+                drawGauge(easedProgress);
+                gaugeValue.textContent = currentSpeed;
+                
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                } else {
+                    // Valor final exacto
+                    gaugeValue.textContent = maxSpeed;
+                    drawGauge(1);
+                }
+            }
+            
+            // Iniciar animación cuando el gauge entra en el viewport
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        startTime = null;
+                        requestAnimationFrame(animate);
+                        observer.unobserve(speedGauge);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            observer.observe(speedGauge);
+        }
+        
+        // Iniciar gauge cuando la página cargue
+        window.addEventListener('load', () => {
+            setTimeout(animateGauge, 500);
+        });
+        
+        // Redibujar gauge cuando cambia el tema
+        window.addEventListener('themechange', () => {
+            setTimeout(() => {
+                const currentValue = parseInt(gaugeValue.textContent);
+                const canvas = speedGauge;
+                const ctx = canvas.getContext('2d');
+                const centerX = canvas.width / 2;
+                const centerY = canvas.height / 2;
+                const radius = Math.min(centerX, centerY) - 30;
+                const progress = currentValue / 1000;
+                
+                // Redibujar con nuevos colores
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--color-primary').trim();
+                const secondaryColor = getComputedStyle(document.documentElement).getPropertyValue('--color-secondary').trim();
+                
+                const startAngle = -Math.PI;
+                const endAngle = 0;
+                const currentAngle = startAngle + (endAngle - startAngle) * progress;
+                
+                // Arco de fondo
+                ctx.beginPath();
+                ctx.arc(centerX, centerY, radius, startAngle, endAngle);
+                ctx.lineWidth = 25;
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+                ctx.stroke();
+                
+                // Gradiente
+                const gradient = ctx.createLinearGradient(0, centerY, canvas.width, centerY);
+                gradient.addColorStop(0, primaryColor);
+                gradient.addColorStop(1, secondaryColor);
+                
+                // Arco de progreso
+                ctx.beginPath();
+                ctx.arc(centerX, centerY, radius, startAngle, currentAngle);
+                ctx.lineWidth = 25;
+                ctx.strokeStyle = gradient;
+                ctx.lineCap = 'round';
+                ctx.stroke();
+                
+                // Aguja
+                const needleLength = radius - 40;
+                const needleX = centerX + needleLength * Math.cos(currentAngle);
+                const needleY = centerY + needleLength * Math.sin(currentAngle);
+                
+                ctx.beginPath();
+                ctx.moveTo(centerX, centerY);
+                ctx.lineTo(needleX, needleY);
+                ctx.lineWidth = 4;
+                ctx.strokeStyle = '#FFFFFF';
+                ctx.stroke();
+                
+                // Centro
+                ctx.beginPath();
+                ctx.arc(centerX, centerY, 10, 0, Math.PI * 2);
+                ctx.fillStyle = '#FFFFFF';
+                ctx.fill();
+            }, 100);
+        });
+    </script>
 </body>
 </html>
