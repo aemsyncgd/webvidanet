@@ -1,0 +1,1084 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>VidaNet C.A. — Fibra Óptica FTTH / FTTB | Guacara</title>
+
+  <!-- Google Fonts: Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Swiper -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css" />
+
+  <!-- Font Awesome 6 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    :root{
+      /* Core palette (required) */
+      --primary:#1597E5;
+      --accent-green:#3CCF4E;
+      --alt-green:#61CE70;
+      --promo:#F77E21;
+      --whatsapp:#25D366;
+
+      /* Semantic tokens (light mode defaults) */
+      --bg:#F9F9F9;
+      --surface:#FFFFFF;
+      --muted:#7A7A7A;
+      --muted-2:#54595F;
+      --text:#1A1A1A;
+      --header-bg: rgba(249,249,249,0.7);
+      --card-shadow: 0 6px 20px rgba(25,25,25,0.08);
+      --hero-overlay: linear-gradient(180deg, rgba(10,10,10,0.18), rgba(10,10,10,0.28));
+      --hero-text: #ffffff;
+      --glass: rgba(255,255,255,0.06);
+      --btn-text: #ffffff;
+
+      --radius:12px;
+      --max-width:1200px;
+    }
+
+    /* Dark theme overrides */
+    .dark{
+      --bg:#0b1220;
+      --surface:#0f1724;
+      --muted:#9aa4b2;
+      --muted-2:#b7c2cf;
+      --text:#E6EEF6;
+      --header-bg: rgba(12,18,28,0.6);
+      --card-shadow: 0 8px 28px rgba(2,6,23,0.6);
+      --hero-overlay: linear-gradient(180deg, rgba(2,6,23,0.45), rgba(2,6,23,0.6));
+      --hero-text: #ffffff;
+      --glass: rgba(255,255,255,0.03);
+      --btn-text: #0b1220;
+    }
+
+    *{box-sizing:border-box}
+    html,body{
+      height:100%;
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      scroll-behavior:smooth;
+      transition: background .28s ease, color .28s ease;
+    }
+
+    /* Header */
+    header{
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      height:72px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      z-index:1000;
+      backdrop-filter: blur(6px);
+      background: var(--header-bg);
+      border-bottom:1px solid rgba(0,0,0,0.04);
+      transition: background .28s ease, border-color .28s ease;
+    }
+    .container{
+      width:100%;
+      max-width:var(--max-width);
+      padding:0 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .logo img{ height:44px; display:block; }
+
+    nav{
+      display:flex;
+      gap:18px;
+      align-items:center;
+    }
+    nav a{
+      color:var(--muted-2);
+      text-decoration:none;
+      font-weight:500;
+      padding:8px 12px;
+      border-radius:8px;
+      transition:all .18s ease;
+    }
+    nav a:hover{ color:var(--primary); background:rgba(21,151,229,0.06); }
+
+    .btn-primary{
+      background:linear-gradient(90deg,var(--primary),var(--alt-green));
+      color:var(--btn-text);
+      padding:10px 16px;
+      border-radius:10px;
+      border:none;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow: var(--card-shadow);
+    }
+    .btn-ghost{
+      background:transparent;
+      color:var(--primary);
+      border:1px solid rgba(21,151,229,0.12);
+      padding:8px 12px;
+      border-radius:10px;
+      cursor:pointer;
+      font-weight:600;
+    }
+
+    /* Theme toggle (icon-only) */
+    .theme-toggle{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:40px;
+      height:40px;
+      padding:6px;
+      background:transparent;
+      border:0;
+      border-radius:8px;
+      cursor:pointer;
+      color:var(--muted-2);
+      transition: transform .14s ease, background .18s ease, color .18s ease;
+    }
+    .theme-toggle .icon{
+      width:24px;
+      height:24px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      font-size:16px;
+      color:var(--primary);
+    }
+    .theme-toggle:hover{ transform: translateY(-3px); color:var(--primary); }
+    .theme-toggle:active{ transform: translateY(0); }
+    .theme-toggle:focus { outline: 3px solid rgba(21,151,229,0.14); outline-offset: 3px; border-radius:8px; }
+
+    main{ padding-top:92px; }
+
+    /* HERO */
+    .hero{
+      position:relative;
+      min-height:680px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+    }
+    .hero .bg-slider{
+      position:absolute;
+      inset:0;
+      z-index:0;
+    }
+    .hero .bg-slide{
+      position:absolute;
+      inset:0;
+      background-size:cover;
+      background-position:center;
+      opacity:0;
+      transition:opacity 1s ease;
+      filter: saturate(1.05) contrast(1.02);
+    }
+    .hero .bg-slide.active{ opacity:1; }
+
+    .hero .overlay{
+      position:absolute;
+      inset:0;
+      background: var(--hero-overlay);
+      z-index:1;
+      transition: background .28s ease;
+    }
+
+    .hero-inner{
+      position:relative;
+      z-index:2;
+      width:100%;
+      max-width:var(--max-width);
+      padding:60px 20px;
+      display:flex;
+      gap:40px;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .hero-copy{
+      flex:1;
+      max-width:640px;
+      color:var(--hero-text);
+    }
+    .hero-copy h1{
+      font-size:44px;
+      margin:0 0 12px;
+      line-height:1.02;
+      font-weight:700;
+      letter-spacing:-0.5px;
+    }
+    .hero-copy p{
+      margin:0 0 22px;
+      color:rgba(255,255,255,0.92);
+      font-size:18px;
+      font-weight:500;
+    }
+    .hero-actions{ display:flex; gap:12px; align-items:center; }
+
+    .gauge-wrap{
+      width:420px;
+      max-width:42%;
+      min-width:260px;
+      background:var(--glass);
+      border-radius:16px;
+      padding:22px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      box-shadow:var(--card-shadow);
+      backdrop-filter: blur(6px);
+      transition: background .28s ease, box-shadow .28s ease;
+    }
+    .gauge-canvas{ width:100%; height:220px; display:block; }
+    .gauge-label{
+      margin-top:8px;
+      color:var(--hero-text);
+      font-weight:600;
+      font-size:18px;
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+    .gauge-speed{
+      font-size:22px;
+      color:var(--primary);
+      font-weight:700;
+    }
+
+    /* Advantages */
+    .advantages{
+      margin:60px auto;
+      max-width:var(--max-width);
+      padding:0 20px;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+    }
+    .adv-card{
+      background:var(--surface);
+      border-radius:12px;
+      padding:18px;
+      display:flex;
+      gap:12px;
+      align-items:center;
+      box-shadow:var(--card-shadow);
+      transition: background .28s ease, box-shadow .28s ease;
+    }
+    .adv-card i{
+      font-size:28px;
+      color:var(--primary);
+      width:56px;
+      height:56px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:10px;
+      background:linear-gradient(180deg, rgba(21,151,229,0.06), rgba(97,206,112,0.04));
+    }
+    .adv-card h4{ margin:0; font-size:15px; color:var(--text); font-weight:600; }
+    .adv-card p{ margin:2px 0 0; color:var(--muted); font-size:13px; }
+
+    /* Promotions */
+    .promos{
+      margin:40px auto;
+      max-width:var(--max-width);
+      padding:0 20px;
+      display:flex;
+      gap:18px;
+      justify-content:space-between;
+    }
+    .promo-card{
+      flex:1;
+      border-radius:14px;
+      color:white;
+      padding:20px;
+      min-height:140px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      box-shadow: 0 10px 30px rgba(21,151,229,0.08);
+    }
+    .promo-card h3{ margin:0 0 6px; font-size:18px; }
+    .promo-card p{ margin:0; opacity:0.95; font-weight:500; }
+
+    /* Plans */
+    .plans{
+      margin:60px auto;
+      max-width:var(--max-width);
+      padding:0 20px 40px;
+    }
+    .plans h2{ font-size:28px; margin:0 0 18px; color:var(--text); }
+    .swiper .plan-card{
+      background:var(--surface);
+      border-radius:12px;
+      padding:18px;
+      box-shadow:var(--card-shadow);
+      min-height:220px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      border-top:4px solid rgba(0,0,0,0.03);
+      transition: background .28s ease, box-shadow .28s ease;
+    }
+    .plan-header{ display:flex; justify-content:space-between; align-items:center; gap:10px; }
+    .plan-name{ font-weight:700; font-size:18px; color:var(--primary); }
+    .plan-speed{ font-weight:700; font-size:22px; color:var(--text); }
+    .plan-benefits{ margin:12px 0 0; color:var(--muted); font-size:14px; display:flex; flex-direction:column; gap:8px; }
+    .badge{
+      display:inline-block;
+      background:linear-gradient(90deg,var(--accent-green),var(--alt-green));
+      color:white;
+      padding:6px 10px;
+      border-radius:999px;
+      font-weight:600;
+      font-size:13px;
+    }
+    .plan-cta{ display:flex; gap:10px; align-items:center; margin-top:12px; }
+    .plan-cta a{ text-decoration:none; }
+
+    /* Testimonials */
+    .testimonials{
+      margin:40px auto;
+      max-width:var(--max-width);
+      padding:0 20px 60px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+    .test-card{
+      background:var(--surface);
+      border-radius:10px;
+      padding:18px;
+      box-shadow:var(--card-shadow);
+      border-left:6px solid var(--accent-green);
+      transition: background .28s ease, box-shadow .28s ease;
+    }
+    .test-card p{ margin:0 0 12px; color:var(--muted-2); }
+    .test-card h5{ margin:0; font-size:14px; color:var(--text); font-weight:700; }
+
+    /* CTA final */
+    .cta-final{
+      background:linear-gradient(180deg,#0b1220,#0f1724);
+      color:white;
+      padding:36px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .cta-inner{
+      max-width:var(--max-width);
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+    .cta-inner h3{ margin:0; font-size:22px; }
+    .cta-actions{ display:flex; gap:12px; align-items:center; }
+
+    /* Footer */
+    footer{
+      padding:28px 20px;
+      background:var(--surface);
+      border-top:1px solid rgba(0,0,0,0.04);
+      transition: background .28s ease;
+    }
+    .footer-inner{
+      max-width:var(--max-width);
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+    .socials a{ color:var(--muted-2); margin-left:10px; text-decoration:none; font-size:18px; }
+
+    /* WhatsApp floating container */
+    .whatsapp-container{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:1200;
+      display:flex;
+      align-items:flex-end;
+      gap:12px;
+      pointer-events:none; /* solo el enlace dentro captura eventos */
+    }
+    .whatsapp-fab{
+      pointer-events:auto;
+      width:56px;
+      height:56px;
+      border-radius:50%;
+      background:var(--whatsapp);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow: 0 8px 30px rgba(37,211,102,0.18);
+      cursor:pointer;
+      text-decoration:none;
+      transition: transform .12s ease, box-shadow .18s ease;
+      outline: none;
+    }
+    .whatsapp-fab i{ color:white; font-size:22px; }
+    .whatsapp-fab:focus{ box-shadow: 0 8px 30px rgba(37,211,102,0.28); transform: translateY(-3px); }
+
+    .whatsapp-tooltip{
+      pointer-events:auto;
+      position:absolute;
+      right:72px;
+      bottom:6px;
+      transform-origin: right bottom;
+      background:var(--surface);
+      color:var(--text);
+      padding:10px 14px;
+      border-radius:10px;
+      box-shadow:var(--card-shadow);
+      display:block;
+      opacity:0;
+      visibility:hidden;
+      transition: opacity .18s ease, transform .18s ease, visibility .18s;
+      width:240px;
+      font-size:14px;
+      font-weight:500;
+      z-index:1201;
+    }
+    .whatsapp-container.show-tooltip .whatsapp-tooltip{
+      opacity:1;
+      visibility:visible;
+      transform: translateY(-6px) scale(1);
+    }
+    .whatsapp-tooltip:focus{ outline: 3px solid rgba(21,151,229,0.12); outline-offset:4px; }
+
+    /* Responsive */
+    @media (max-width:1024px){
+      .advantages{ grid-template-columns:repeat(2,1fr); }
+      .hero-inner{ flex-direction:column; align-items:center; gap:20px; padding:40px 20px; }
+      .gauge-wrap{ max-width:520px; width:100%; }
+      .promos{ flex-direction:column; }
+      .testimonials{ grid-template-columns:1fr; }
+    }
+    @media (max-width:640px){
+      header{ height:64px; }
+      .hero{ min-height:640px; }
+      .hero-copy h1{ font-size:28px; }
+      .hero-copy p{ font-size:15px; }
+      .advantages{ grid-template-columns:1fr; }
+      .gauge-wrap{ width:100%; min-width:unset; }
+      .plans h2{ font-size:20px; }
+      .swiper .plan-card{ min-height:200px; }
+      .hero-inner{ padding:24px; }
+      .container{ padding:0 14px; }
+      nav{ gap:12px; }
+    }
+
+    /* WhatsApp tooltip mobile safeguard */
+    @media (max-width:420px){
+      .whatsapp-tooltip{
+        right:auto; left:12px; bottom:72px; width:calc(100vw - 48px);
+      }
+    }
+
+    /* small tweaks */
+    a.btn-link{ color:var(--primary); font-weight:600; text-decoration:none; }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <a href="#inicio"><img src="https://vidanet.com.ve/wp-content/uploads/2022/10/logohb-300x86.png" alt="VidaNet logo"></a>
+      </div>
+
+      <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#promociones">Promociones</a>
+        <a href="#planes">Planes</a>
+        <a href="#testimonios">Testimonios</a>
+        <a class="btn-ghost" href="https://pagos.vidanet.net" target="_blank" rel="noopener">Pagar Servicio</a>
+
+        <!-- Theme toggle (icon-only) -->
+        <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema" title="Cambiar tema">
+          <span class="icon" id="theme-icon"><i class="fa-solid fa-moon"></i></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section id="inicio" class="hero" aria-label="Hero - VidaNet">
+      <div class="bg-slider" aria-hidden="true">
+        <div class="bg-slide active" style="background-image:url('https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1600&q=60');"></div>
+        <div class="bg-slide" style="background-image:url('https://images.unsplash.com/photo-1605902711622-cfb43c44367e?auto=format&fit=crop&w=1600&q=60');"></div>
+        <div class="bg-slide" style="background-image:url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1600&q=60');"></div>
+      </div>
+      <div class="overlay"></div>
+
+      <div class="hero-inner">
+        <div class="hero-copy" data-aos="fade-right">
+          <h1>La conexión que impulsa tu vida</h1>
+          <p>Más que internet, te brindamos la estabilidad y velocidad que necesitas para trabajar, aprender y entretenerte sin límites.</p>
+
+          <div class="hero-actions">
+            <a class="btn-primary" href="#planes">Ver Planes</a>
+            <a class="btn-ghost" href="tel:08008432638">Llámanos Gratis</a>
+          </div>
+
+          <div style="margin-top:18px; display:flex; gap:12px; align-items:center;">
+            <span style="background:rgba(255,255,255,0.08); padding:8px 12px; border-radius:999px; color:var(--hero-text); font-weight:600;">FTTH • FTTB</span>
+            <span style="background:rgba(255,255,255,0.06); padding:8px 12px; border-radius:999px; color:var(--hero-text); font-weight:500;">Sede: Guacara</span>
+          </div>
+        </div>
+
+        <div class="gauge-wrap" data-aos="zoom-in">
+          <canvas id="gauge" class="gauge-canvas" width="420" height="220" aria-hidden="true"></canvas>
+          <div class="gauge-label">
+            <span class="gauge-speed" id="gauge-value">0 Mbps</span>
+            <span style="color:var(--hero-text); font-weight:600;">Velocidad de descarga</span>
+          </div>
+          <div style="margin-top:10px; display:flex; gap:10px;">
+            <a class="btn-primary" href="#planes">Contratar</a>
+            <a class="btn-ghost" href="tel:08008432638">Llámanos</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Advantages -->
+    <section class="advantages" aria-label="Ventajas">
+      <div class="adv-card" data-aos="fade-up">
+        <i class="fa-solid fa-wifi"></i>
+        <div>
+          <h4>Fibra Óptica 100%</h4>
+          <p>Conexión directa hasta tu hogar o empresa, sin pérdidas.</p>
+        </div>
+      </div>
+
+      <div class="adv-card" data-aos="fade-up" data-aos-delay="80">
+        <i class="fa-solid fa-headset"></i>
+        <div>
+          <h4>Soporte 24/7</h4>
+          <p>Atención técnica permanente para resolver cualquier incidencia.</p>
+        </div>
+      </div>
+
+      <div class="adv-card" data-aos="fade-up" data-aos-delay="160">
+        <i class="fa-solid fa-truck-fast"></i>
+        <div>
+          <h4>Instalación rápida</h4>
+          <p>Programamos y dejamos todo listo en tiempo récord.</p>
+        </div>
+      </div>
+
+      <div class="adv-card" data-aos="fade-up" data-aos-delay="240">
+        <i class="fa-solid fa-tv"></i>
+        <div>
+          <h4>Vidaplay TV incluido</h4>
+          <p>Streaming y entretenimiento con múltiples pantallas según tu plan.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Promotions -->
+    <section id="promociones" style="padding:20px 0;">
+      <div class="promos" data-aos="fade-up">
+        <div class="promo-card" style="background:linear-gradient(135deg,var(--primary),var(--accent-green));">
+          <div>
+            <h3>Router Gratis</h3>
+            <p>Contrata cualquier plan y recibe router Wi‑Fi sin costo adicional.</p>
+          </div>
+          <div style="text-align:right;">
+            <span style="font-weight:700; font-size:20px;">Oferta limitada</span>
+          </div>
+        </div>
+
+        <div class="promo-card" style="background:linear-gradient(135deg,var(--primary),var(--accent-green));">
+          <div>
+            <h3>Navidad 2025</h3>
+            <p>Promoción especial con descuentos y regalos para nuevos clientes.</p>
+          </div>
+          <div style="text-align:right;">
+            <span style="font-weight:700; font-size:20px;">Aplica condiciones</span>
+          </div>
+        </div>
+
+        <div class="promo-card" style="background:linear-gradient(135deg,var(--primary),var(--accent-green));">
+          <div>
+            <h3>Sin cuota de activación</h3>
+            <p>Activa tu servicio sin pagar cuota de instalación durante el mes.</p>
+          </div>
+          <div style="text-align:right;">
+            <span style="font-weight:700; font-size:20px;">¡Aprovecha!</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Plans -->
+    <section id="planes" class="plans" aria-label="Planes">
+      <h2 data-aos="fade-up">Planes de Fibra Óptica + Vidaplay TV</h2>
+
+      <div class="swiper mySwiper" data-aos="fade-up" data-aos-delay="80">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="plan-card">
+              <div class="plan-header">
+                <div>
+                  <div class="plan-name">Contigo</div>
+                  <div class="plan-speed">400 Mbps</div>
+                </div>
+                <div class="badge">Vidaplay: 2 pantallas</div>
+              </div>
+              <div class="plan-benefits">
+                <div>• Latencia baja para videollamadas</div>
+                <div>• Router dual‑band incluido</div>
+                <div>• Soporte técnico 24/7</div>
+              </div>
+              <div class="plan-cta">
+                <a href="https://pagos.vidanet.net" target="_blank" rel="noopener" class="btn-primary">Contratar</a>
+                <a class="btn-ghost" href="tel:08008432638">Llámanos</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="plan-card">
+              <div class="plan-header">
+                <div>
+                  <div class="plan-name">Intro</div>
+                  <div class="plan-speed">500 Mbps</div>
+                </div>
+                <div class="badge">Vidaplay: 3 pantallas</div>
+              </div>
+              <div class="plan-benefits">
+                <div>• Ideal para teletrabajo</div>
+                <div>• Streaming en HD sin cortes</div>
+                <div>• Instalación prioritaria</div>
+              </div>
+              <div class="plan-cta">
+                <a href="https://pagos.vidanet.net" target="_blank" rel="noopener" class="btn-primary">Contratar</a>
+                <a class="btn-ghost" href="tel:08008432638">Llámanos</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="plan-card">
+              <div class="plan-header">
+                <div>
+                  <div class="plan-name">Ideal</div>
+                  <div class="plan-speed">600 Mbps</div>
+                </div>
+                <div class="badge">Vidaplay: 4 pantallas</div>
+              </div>
+              <div class="plan-benefits">
+                <div>• Conexión estable para hogares grandes</div>
+                <div>• Prioridad en soporte</div>
+                <div>• IP dinámica incluida</div>
+              </div>
+              <div class="plan-cta">
+                <a href="https://pagos.vidanet.net" target="_blank" rel="noopener" class="btn-primary">Contratar</a>
+                <a class="btn-ghost" href="tel:08008432638">Llámanos</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="plan-card">
+              <div class="plan-header">
+                <div>
+                  <div class="plan-name">Recargado</div>
+                  <div class="plan-speed">800 Mbps</div>
+                </div>
+                <div class="badge">Vidaplay: 5 pantallas</div>
+              </div>
+              <div class="plan-benefits">
+                <div>• Perfecto para gaming y streaming simultáneo</div>
+                <div>• Router premium incluido</div>
+                <div>• SLA empresarial opcional</div>
+              </div>
+              <div class="plan-cta">
+                <a href="https://pagos.vidanet.net" target="_blank" rel="noopener" class="btn-primary">Contratar</a>
+                <a class="btn-ghost" href="tel:08008432638">Llámanos</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="plan-card">
+              <div class="plan-header">
+                <div>
+                  <div class="plan-name">Ultra</div>
+                  <div class="plan-speed">1000 Mbps</div>
+                </div>
+                <div class="badge">Vidaplay: 6 pantallas</div>
+              </div>
+              <div class="plan-benefits">
+                <div>• Velocidad máxima para empresas y hogares exigentes</div>
+                <div>• Prioridad en red y soporte</div>
+                <div>• Instalación FTTH garantizada</div>
+              </div>
+              <div class="plan-cta">
+                <a href="https://pagos.vidanet.net" target="_blank" rel="noopener" class="btn-primary">Contratar</a>
+                <a class="btn-ghost" href="tel:08008432638">Llámanos</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="swiper-button-next" style="color:var(--primary)"></div>
+        <div class="swiper-button-prev" style="color:var(--primary)"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonios" class="testimonials" aria-label="Testimonios">
+      <div class="test-card" data-aos="fade-up">
+        <p>"Desde que instalé VidaNet en mi hogar, las videoconferencias y el streaming funcionan sin interrupciones. La instalación fue rápida y el técnico muy profesional."</p>
+        <h5>— María López, Guacara</h5>
+      </div>
+
+      <div class="test-card" data-aos="fade-up" data-aos-delay="80">
+        <p>"Contratamos el plan Ultra para la oficina y la diferencia fue inmediata: descargas rápidas y soporte siempre disponible. Recomendados."</p>
+        <h5>— José Martínez, Empresario</h5>
+      </div>
+
+      <div class="test-card" data-aos="fade-up" data-aos-delay="160">
+        <p>"Vidaplay incluido es una ventaja enorme. Mis hijos pueden ver sus series mientras trabajo sin que se caiga la conexión."</p>
+        <h5>— Ana Rodríguez, Profesora</h5>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-final" data-aos="fade-up">
+      <div class="cta-inner">
+        <div>
+          <h3>Listo para navegar sin límites con VidaNet?</h3>
+          <p style="margin:6px 0 0; color:rgba(255,255,255,0.8);">Planes con Vidaplay TV y soporte local en Guacara.</p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn-primary" href="tel:08008432638">Llámanos: 0800-VidaNet</a>
+          <a class="btn-ghost" href="https://wa.me/584121234567" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div style="display:flex; align-items:center; gap:14px;">
+        <img src="https://vidanet.com.ve/wp-content/uploads/2022/10/logohb-300x86.png" alt="VidaNet" style="height:36px;">
+        <div style="color:var(--muted-2); font-size:14px;">VidaNet C.A. — Fibra Óptica FTTH / FTTB • Guacara</div>
+      </div>
+
+      <div style="display:flex; align-items:center; gap:18px;">
+        <div class="socials">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+        <div style="color:var(--muted); font-size:13px;">© <span id="year"></span> VidaNet C.A. Todos los derechos reservados.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating -->
+  <div class="whatsapp-container" aria-hidden="false">
+    <a class="whatsapp-fab" href="https://wa.me/584121234567" target="_blank" rel="noopener" aria-label="WhatsApp" tabindex="0">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <div class="whatsapp-tooltip" role="status" aria-live="polite">Hola, soy Vivian, tu asistente virtual. ¿En qué puedo ayudarte hoy?</div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
+
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration:700,
+      once:true,
+      easing:'ease-out-cubic'
+    });
+
+    // Hero background slider (simple)
+    (function(){
+      const slides = document.querySelectorAll('.bg-slide');
+      let idx = 0;
+      setInterval(()=> {
+        slides[idx].classList.remove('active');
+        idx = (idx+1) % slides.length;
+        slides[idx].classList.add('active');
+      }, 6000);
+    })();
+
+    // Smooth scroll for header links (works for anchors)
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', function(e){
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target){
+          e.preventDefault();
+          const y = target.getBoundingClientRect().top + window.pageYOffset - 80;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Swiper for plans
+    const swiper = new Swiper('.mySwiper', {
+      slidesPerView: 3,
+      spaceBetween: 18,
+      loop: false,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: { el: '.swiper-pagination', clickable: true },
+      breakpoints: {
+        0: { slidesPerView: 1 },
+        640: { slidesPerView: 1.2 },
+        900: { slidesPerView: 2 },
+        1100: { slidesPerView: 3 }
+      }
+    });
+
+    // Gauge using Canvas
+    (function(){
+      const canvas = document.getElementById('gauge');
+      const ctx = canvas.getContext('2d');
+      const w = canvas.width;
+      const h = canvas.height;
+      const cx = w/2;
+      const cy = h*0.9;
+      const radius = Math.min(w*0.38, h*0.8);
+      const maxValue = 1000;
+      const target = 1000; // value
+      const label = document.getElementById('gauge-value');
+
+      function drawBackground(){
+        ctx.clearRect(0,0,w,h);
+        // arc background
+        ctx.beginPath();
+        ctx.lineWidth = 18;
+        ctx.strokeStyle = 'rgba(255,255,255,0.12)';
+        ctx.arc(cx, cy, radius, Math.PI, 2*Math.PI, false);
+        ctx.stroke();
+
+        // ticks
+        for(let i=0;i<=10;i++){
+          const angle = Math.PI + (i/10)*Math.PI;
+          const x1 = cx + Math.cos(angle)*(radius-10);
+          const y1 = cy + Math.sin(angle)*(radius-10);
+          const x2 = cx + Math.cos(angle)*(radius+6);
+          const y2 = cy + Math.sin(angle)*(radius+6);
+          ctx.beginPath();
+          ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+          ctx.lineWidth = (i%5===0)?3:1.5;
+          ctx.moveTo(x1,y1);
+          ctx.lineTo(x2,y2);
+          ctx.stroke();
+        }
+      }
+
+      function drawArc(percent){
+        const start = Math.PI;
+        const end = Math.PI + percent*Math.PI;
+        const primary = getComputedStyle(document.documentElement).getPropertyValue('--primary').trim() || '#1597E5';
+        const alt = getComputedStyle(document.documentElement).getPropertyValue('--alt-green').trim() || '#61CE70';
+        const grad = ctx.createLinearGradient(cx-radius,cy, cx+radius,cy);
+        grad.addColorStop(0, primary);
+        grad.addColorStop(0.6, alt);
+        ctx.beginPath();
+        ctx.lineWidth = 18;
+        ctx.lineCap = 'round';
+        ctx.strokeStyle = grad;
+        ctx.arc(cx, cy, radius, start, end, false);
+        ctx.stroke();
+      }
+
+      function drawNeedle(percent){
+        const angle = Math.PI + percent*Math.PI;
+        const nx = cx + Math.cos(angle)*(radius-28);
+        const ny = cy + Math.sin(angle)*(radius-28);
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.lineTo(nx, ny);
+        ctx.lineWidth = 4;
+        ctx.strokeStyle = '#ffffff';
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.fillStyle = '#ffffff';
+        ctx.arc(cx, cy, 8, 0, Math.PI*2);
+        ctx.fill();
+      }
+
+      let current = 0;
+      const duration = 1400;
+      const startTime = performance.now();
+      function animate(now){
+        const elapsed = now - startTime;
+        const t = Math.min(1, elapsed / duration);
+        const ease = 1 - Math.pow(1 - t, 3);
+        current = Math.round(ease * target);
+        const percent = Math.min(1, current / maxValue);
+
+        drawBackground();
+        drawArc(percent);
+        drawNeedle(percent);
+
+        label.textContent = current + ' Mbps';
+
+        if(t < 1){
+          requestAnimationFrame(animate);
+        } else {
+          label.textContent = target + ' Mbps';
+        }
+      }
+      requestAnimationFrame(animate);
+
+      // redraw gauge on theme change
+      window.addEventListener('themechange', ()=> {
+        drawBackground();
+        drawArc(1);
+        drawNeedle(1);
+      });
+    })();
+
+    // Year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // A11y: keyboard focus for whatsapp fab shows tooltip
+    // (handled in tooltip module below)
+
+    // Small performance: defer AOS refresh after images
+    window.addEventListener('load', ()=> AOS.refresh());
+
+    /* Theme toggle (icon-only) */
+    (function(){
+      const root = document.documentElement;
+      const toggle = document.getElementById('theme-toggle');
+      const icon = document.getElementById('theme-icon');
+      const storageKey = 'vidanet-theme';
+
+      function setIcon(theme){
+        if(theme === 'dark'){
+          icon.innerHTML = '<i class="fa-solid fa-sun" style="color:var(--primary)"></i>';
+          toggle.setAttribute('aria-label','Modo claro');
+          toggle.title = 'Modo claro';
+        } else {
+          icon.innerHTML = '<i class="fa-solid fa-moon" style="color:var(--primary)"></i>';
+          toggle.setAttribute('aria-label','Modo oscuro');
+          toggle.title = 'Modo oscuro';
+        }
+      }
+
+      function applyTheme(theme, persist = true){
+        if(theme === 'dark'){
+          root.classList.add('dark');
+          setIcon('dark');
+        } else {
+          root.classList.remove('dark');
+          setIcon('light');
+        }
+        window.dispatchEvent(new Event('themechange'));
+        if(persist) localStorage.setItem(storageKey, theme);
+      }
+
+      const saved = localStorage.getItem(storageKey);
+      if(saved === 'dark' || (!saved && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)){
+        applyTheme('dark', false);
+      } else {
+        applyTheme('light', false);
+      }
+
+      toggle.addEventListener('click', ()=>{
+        const isDark = root.classList.contains('dark');
+        applyTheme(isDark ? 'light' : 'dark', true);
+        toggle.animate(
+          [{ transform: 'translateY(0)' }, { transform: 'translateY(-4px)' }, { transform: 'translateY(0)' }],
+          { duration: 220, easing: 'ease-out' }
+        );
+      });
+
+      toggle.addEventListener('keydown', (e)=>{
+        if(e.key === 'Enter' || e.key === ' '){
+          e.preventDefault();
+          toggle.click();
+        }
+      });
+    })();
+
+    /* WhatsApp tooltip: dynamic positioning & visibility */
+    (function(){
+      const container = document.querySelector('.whatsapp-container');
+      const fab = container.querySelector('.whatsapp-fab');
+      const tooltip = container.querySelector('.whatsapp-tooltip');
+
+      function adjustTooltipPosition(){
+        const rect = fab.getBoundingClientRect();
+        const ttW = tooltip.offsetWidth;
+        const margin = 12;
+
+        // Try left of the fab
+        let leftSpace = rect.left - margin - ttW;
+        if(leftSpace >= 8){
+          // position to the left
+          tooltip.style.left = 'auto';
+          tooltip.style.right = (window.innerWidth - rect.right + margin) + 'px';
+          tooltip.style.bottom = (window.innerHeight - rect.bottom + 6) + 'px';
+        } else {
+          // position above centered
+          const left = Math.max(8, rect.left - ttW/2);
+          tooltip.style.right = 'auto';
+          tooltip.style.left = left + 'px';
+          tooltip.style.bottom = (window.innerHeight - rect.top + 12) + 'px';
+        }
+      }
+
+      function showTooltip(){
+        adjustTooltipPosition();
+        container.classList.add('show-tooltip');
+      }
+      function hideTooltip(){
+        container.classList.remove('show-tooltip');
+      }
+
+      fab.addEventListener('mouseenter', showTooltip);
+      fab.addEventListener('focus', showTooltip);
+      fab.addEventListener('mouseleave', hideTooltip);
+      fab.addEventListener('blur', hideTooltip);
+
+      window.addEventListener('resize', ()=> {
+        if(container.classList.contains('show-tooltip')) adjustTooltipPosition();
+      });
+      window.addEventListener('scroll', ()=> {
+        if(container.classList.contains('show-tooltip')) adjustTooltipPosition();
+      });
+
+      // initial calc
+      adjustTooltipPosition();
+    })();
+  </script>
+</body>
+</html>
