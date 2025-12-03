@@ -527,12 +527,12 @@ body.light-theme .theme-toggle .fa-moon {
  * ============================================ */
 .hero {
     position: relative;
-    min-height: 100vh;
+    min-height: 90vh;
     display: flex;
     align-items: center;
     overflow: hidden;
     padding-top: var(--header-height);
-    background: linear-gradient(135deg, rgba(10, 10, 15, 0.9) 0%, rgba(21, 151, 229, 0.1) 100%);
+   background: linear-gradient(135deg, rgba(10, 10, 15, 0.9) 0%, rgba(21, 151, 229, 0.1) 100%);
 }
 
 .hero-bg-video {
@@ -542,8 +542,8 @@ body.light-theme .theme-toggle .fa-moon {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -2;
-    opacity: 0.15;
+    z-index: -1;
+    opacity: 0.5;
 }
 
 .hero-overlay {
@@ -552,7 +552,7 @@ body.light-theme .theme-toggle .fa-moon {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(21, 151, 229, 0.1) 0%, rgba(60, 207, 78, 0.05) 100%);
+    /* background: linear-gradient(135deg, rgba(21, 151, 229, 0.1) 0%, rgba(60, 207, 78, 0.05) 100%);*/
     z-index: -1;
 }
 
@@ -574,7 +574,7 @@ body.light-theme .theme-toggle .fa-moon {
 }
 
 .hero h1 {
-    font-size: 4rem;
+    font-size: 5rem;
     margin-bottom: 1.5rem;
     line-height: 1.1;
 }
