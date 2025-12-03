@@ -1,0 +1,135 @@
+Eres un diseñador y desarrollador frontend senior con más de 10 años de experiencia en landing pages para ISPs de fibra óptica. Tu tarea es generar un único archivo HTML autocontenido (con <style> y <script> internos) que reproduzca exactamente la landing page descrita a continuación. El archivo puede usar CDNs para Google Fonts, AOS, Swiper y Font Awesome 6, pero no debe requerir instalaciones adicionales ni frameworks pesados. El resultado debe ser listo para abrir en cualquier navegador moderno.
+Requisitos generales
+Idioma: español.
+Diseño inspirado visual y funcionalmente en https://bessersolutions.com/ (transiciones suaves, jerarquía visual clara, tipografía moderna, uso estratégico de espacio en blanco).
+Archivo entregable: un solo HTML con estilos internos en <style> y scripts en <script>. Se permiten enlaces CDN para:
+Google Fonts Poppins (pesos 400, 500, 600, 700)
+AOS.js (animaciones)
+Swiper.js (slider de planes)
+Font Awesome 6 (íconos)
+No usar frameworks CSS pesados; Tailwind solo si se incluye vía CDN y sin dependencias adicionales (preferible CSS puro).
+Código limpio, semántico y accesible (uso de aria-*, roles, etiquetas alt, foco por teclado).
+Optimización básica: minimizar repaints, evitar layout thrash, usar requestAnimationFrame para animaciones del canvas.
+Identidad visual y tokens
+Logo: https://vidanet.com.ve/wp-content/uploads/2022/10/logohb-300x86.png
+Paleta de colores:
+Primario: #1597E5
+Secundario (acento verde): #3CCF4E
+Alternativo: #61CE70
+Fondo claro: #F9F9F9
+Texto oscuro: #1A1A1A
+Grises: #54595F, #7A7A7A
+Acento promocional: #F77E21
+WhatsApp: #25D366
+Tipografía: Google Fonts Poppins (400, 500, 600, 700).
+Variables CSS :root para todos los colores y tokens (bordes, radios, sombras).
+Estructura de la página (orden obligatorio)
+Header fijo (top) con logo a la izquierda y menú a la derecha: enlaces Inicio, Promociones, Planes, Testimonios, botón Pagar Servicio (enlace a https://pagos.vidanet.net). En la esquina superior derecha dentro del header: botón de cambio de tema (solo icono, sin texto ni marco visible; sol para Light, luna para Dark). El botón debe ser accesible por teclado y tener aria-label.
+Hero Section:
+Eslogan: “La conexión que impulsa tu vida”
+Subtítulo: “Más que internet, te brindamos la estabilidad y velocidad que necesitas para trabajar, aprender y entretenerte sin límites.”
+Slider de fondo con 3 imágenes de alta calidad relacionadas con fibra óptica, gaming/trabajo remoto/streaming (pueden ser placeholders de Unsplash). Transición suave automática cada ~6s.
+Widget tipo gauge (canvas) centrado y minimalista que muestre 1000 Mbps de descarga. Debe ser animado desde 0 hasta 1000 usando requestAnimationFrame, con arco degradado (primario → alt-green), aguja, ticks y etiqueta numérica que actualiza durante la animación.
+Botones: “Ver Planes” (ancla a sección Planes) y “Llámanos Gratis” (tel:08008432638 o texto 0800-VidaNet).
+Sección de Ventajas: 4 íconos + textos breves:
+Fibra Óptica 100% — “Conexión directa hasta tu hogar o empresa, sin pérdidas.”
+Soporte 24/7 — “Atención técnica permanente para resolver cualquier incidencia.”
+Instalación rápida — “Programamos y dejamos todo listo en tiempo récord.”
+Vidaplay TV incluido — “Streaming y entretenimiento con múltiples pantallas según tu plan.” Usa Font Awesome para los íconos; tarjetas con fondo blanco, sombra sutil y micro-animación al hover.
+Sección de Promociones (#promociones): 3 tarjetas con fondo degradado linear-gradient(135deg,#1597E5,#3CCF4E) y contenido demo:
+Router gratis — texto descriptivo.
+Navidad 2025 — texto descriptivo.
+Sin cuota de activación — texto descriptivo. Tarjetas con bordes redondeados y CTA visual.
+Sección de Planes (#planes):
+Título: “Planes de Fibra Óptica + Vidaplay TV”
+Slider horizontal con Swiper.js mostrando 5 planes (Contigo, Intro, Ideal, Recargado, Ultra) con velocidades y pantallas Vidaplay:
+Contigo — 400 Mbps — Vidaplay: 2 pantallas
+Intro — 500 Mbps — Vidaplay: 3 pantallas
+Ideal — 600 Mbps — Vidaplay: 4 pantallas
+Recargado — 800 Mbps — Vidaplay: 5 pantallas
+Ultra — 1000 Mbps — Vidaplay: 6 pantallas
+En desktop: mostrar 3 tarjetas visibles; las otras 2 ocultas a la derecha y accesibles con el slider. En mobile mostrar 1 por vista.
+Cada tarjeta: nombre, velocidad, 3 beneficios (líneas), badge Vidaplay: X pantallas, botón Contratar que enlace a https://pagos.vidanet.net, y botón secundario Llámanos.
+Swiper con navegación (prev/next) y paginación clicable.
+Testimonios (#testimonios): 3 tarjetas minimalistas con reseñas creíbles (ficticias), borde izquierdo en verde (#3CCF4E), nombre y ciudad.
+CTA final: sección con fondo oscuro (usar variables de tema), texto blanco, botones para llamar y WhatsApp.
+Footer: logo, enlaces, redes sociales (íconos), copyright con año dinámico.
+Interactividad y UX (detallado)
+Botón flotante de WhatsApp en esquina inferior derecha, fijo al hacer scroll. Enlace https://wa.me/584121234567 (número ficticio). Ícono de WhatsApp blanco sobre fondo verde #25D366.
+Tooltip emergente al pasar el mouse o al enfocar el botón WhatsApp: texto “Hola, soy Vivian, tu asistente virtual. ¿En qué puedo ayudarte hoy?”. Requisitos del tooltip:
+Debe estar contenido en un contenedor fijo .whatsapp-container que incluya el botón y el tooltip para evitar desalineaciones.
+Posicionamiento dinámico: calcular la posición en mouseenter/focus con JS para evitar que el tooltip aparezca distante o fuera de pantalla (considerar window.innerWidth, getBoundingClientRect(), offsetWidth, offsetHeight).
+Ajustes responsivos: en pantallas pequeñas el tooltip debe colocarse arriba del botón y ocupar ancho calc(100vw - 48px).
+Mostrar/ocultar con clase .show-tooltip y transiciones de opacidad/transform.
+Tooltip debe ser accesible (role="status", aria-live="polite").
+Recalcular posición en resize y scroll.
+Problema específico corregido: no usar posicionamiento absoluto global con right/bottom fijos separados del botón; en su lugar, usar contenedor fijo y cálculo dinámico para evitar que el tooltip aparezca distante en algunos escenarios (zoom, transformaciones, cambios de layout).
+Smooth scroll para todos los enlaces del menú (anclas) con offset para header fijo.
+Animaciones al hacer scroll con AOS.js (fade, zoom, slide). Inicializar AOS con duration:700, once:true, easing:'ease-out-cubic'.
+Animaciones del gauge: usar requestAnimationFrame, duración ~1400ms, easing easeOutCubic, actualizar texto numérico durante la animación.
+Theme toggle:
+Debe ser solo icono (sin texto ni marco visible). En modo Light mostrar sol; en modo Dark mostrar media luna. Mantener efecto al hacer click (pequeña animación).
+Implementación: alternar clase .dark en <html> o :root. Persistir preferencia en localStorage con clave vidanet-theme.
+Respetar prefers-color-scheme si no hay preferencia guardada.
+Accesibilidad: aria-label dinámico, soporte por teclado (Enter/Space).
+Al cambiar tema, disparar evento themechange para que componentes (gauge) puedan re-renderizar si necesitan leer variables CSS.
+Canvas gauge debe leer colores desde CSS variables para que el degradado se adapte al tema.
+Responsive:
+Desktop: max-width 1200px, header fijo, hero con gauge a la derecha.
+Tablet: reorganizar hero en columna, mostrar gauge debajo del copy.
+Mobile: header simplificado (ocultar nav o convertir en menú hamburguesa opcional), hero más compacto, Swiper slides 1 por vista.
+Media queries clave: @media (max-width:1024px) y @media (max-width:640px).
+Accesibilidad:
+Todos los botones y enlaces deben ser focusables.
+Contrastes suficientes entre texto y fondo.
+alt en imágenes, aria-label en botones sin texto.
+Tooltip con role y aria-live.
+Rendimiento y robustez:
+Evitar reflows innecesarios; recalcular posiciones solo cuando sea necesario.
+Debe funcionar correctamente en Chrome, Firefox, Edge y Safari modernos.
+Manejar casos de zoom y transformaciones: posicionamiento dinámico del tooltip y recalculado en resize y scroll.
+Contenido Vidaplay
+Incluir una nota breve en la sección de planes o en cada tarjeta: “Vidaplay es un servicio exclusivo para clientes de VidaNet, requiere conexión a la red de fibra del cliente, y permite múltiples pantallas según el plan.”
+Badge en cada plan: Vidaplay: X pantallas (2 a 6).
+Enlaces y datos
+Pagar Servicio → https://pagos.vidanet.net
+WhatsApp → https://wa.me/584121234567
+Teléfono → tel:08008432638 y mostrar texto 0800-VidaNet donde corresponda.
+Comportamiento esperado del tooltip WhatsApp (resumen técnico)
+Tooltip debe aparecer inmediatamente al mouseenter o focus del botón.
+Posición calculada en JS:
+Obtener rect = fab.getBoundingClientRect().
+Calcular tooltipWidth = tooltip.offsetWidth.
+Preferir colocar tooltip a la izquierda del botón con un margen; si no cabe, colocarlo arriba centrado.
+Ajustar tooltip.style.left/right y tooltip.style.bottom/top en píxeles relativos a window.
+Recalcular en resize y scroll.
+Mostrar/ocultar con clase .show-tooltip que controla opacity y visibility.
+Entregable y criterios de aceptación
+Entregar un único archivo HTML que cumpla todo lo anterior.
+El HTML debe incluir:
+<head> con enlaces CDN a Poppins, AOS CSS, Swiper CSS, Font Awesome.
+<style> con todas las reglas CSS (variables, layout, responsive).
+<body> con la estructura completa y contenido de ejemplo.
+<script> al final con inicialización de AOS, Swiper, lógica del gauge (canvas), lógica del theme toggle (persistencia y accesibilidad), lógica del tooltip WhatsApp (posicionamiento dinámico y recalculado), smooth scroll y pequeñas optimizaciones.
+Pruebas: antes de entregar, verifica manualmente:
+Tooltip WhatsApp aparece en la posición correcta en desktop, tablet y móvil; no aparece distante en ningún escenario (zoom, scroll, resize).
+Theme toggle muestra solo icono y alterna correctamente, persistiendo la preferencia.
+Gauge anima hasta 1000 Mbps y muestra el número final.
+Swiper muestra 3 slides en desktop y 1 en móvil; navegación funciona.
+AOS anima secciones al hacer scroll.
+Todos los enlaces Pagar Servicio y Contratar apuntan a https://pagos.vidanet.net.
+Botón WhatsApp abre https://wa.me/584121234567.
+Header fijo y smooth scroll con offset correcto.
+Accesibilidad básica (tab navigation, aria labels).
+Notas de entrega: si el archivo usa imágenes de Unsplash como placeholders, incluir las URLs en el HTML; si el cliente proporciona imágenes reales, deben poder reemplazarse fácilmente.
+Checklist final para la IA que genera el HTML
+[ ] Un solo archivo HTML autocontenido.
+[ ] Variables CSS con la paleta exacta.
+[ ] Logo oficial insertado.
+[ ] Hero con slider de fondo y canvas gauge animado a 1000 Mbps.
+[ ] Ventajas, Promociones, Planes (Swiper), Testimonios, CTA final, Footer.
+[ ] WhatsApp flotante con tooltip posicionado dinámicamente y accesible.
+[ ] Theme toggle solo icono (sol/luna), persistente y accesible.
+[ ] AOS y Swiper inicializados correctamente.
+[ ] Responsive y probado en anchos comunes.
+[ ] Código limpio, comentado y listo para abrir en navegador.
