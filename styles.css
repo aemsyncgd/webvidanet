@@ -527,23 +527,23 @@ body.light-theme .theme-toggle .fa-moon {
  * ============================================ */
 .hero {
     position: relative;
-    min-height: 90vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     overflow: hidden;
     padding-top: var(--header-height);
-   background: linear-gradient(135deg, rgba(10, 10, 15, 0.9) 0%, rgba(21, 151, 229, 0.1) 100%);
+    /* background removed to let video show clearly */
 }
 
 .hero-bg-video {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -1;
-    opacity: 0.5;
+    z-index: -2;
+    opacity: 1;
 }
 
 .hero-overlay {
@@ -552,7 +552,7 @@ body.light-theme .theme-toggle .fa-moon {
     left: 0;
     width: 100%;
     height: 100%;
-    /* background: linear-gradient(135deg, rgba(21, 151, 229, 0.1) 0%, rgba(60, 207, 78, 0.05) 100%);*/
+    background: linear-gradient(135deg, rgba(21, 151, 229, 0.1) 0%, rgba(60, 207, 78, 0.05) 100%);
     z-index: -1;
 }
 
@@ -574,7 +574,7 @@ body.light-theme .theme-toggle .fa-moon {
 }
 
 .hero h1 {
-    font-size: 5rem;
+    font-size: 4rem;
     margin-bottom: 1.5rem;
     line-height: 1.1;
 }
@@ -770,6 +770,7 @@ body.light-theme .theme-toggle .fa-moon {
 .promotions {
     position: relative;
     overflow: hidden;
+    background-color: var(--color-section-bg);
 }
 
 .promotions::before {
@@ -1055,6 +1056,11 @@ body.light-theme .theme-toggle .fa-moon {
 }
 
 /* Testimonios */
+.testimonials {
+    background-color: var(--color-section-bg);
+    position: relative;
+}
+
 .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
