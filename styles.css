@@ -623,8 +623,8 @@ body.light-theme .theme-toggle .fa-moon {
 }
 
 .gauge-container {
-    width: 400px;
-    height: 400px;
+    width: 600px;
+    height: 600px;
     margin: 0 auto;
     position: relative;
 }
@@ -639,7 +639,7 @@ body.light-theme .theme-toggle .fa-moon {
 }
 
 .gauge-value {
-    font-size: 4rem;
+    font-size: 5.5rem;
     font-weight: var(--font-weight-black);
     color: var(--color-white);
     line-height: 1;
@@ -647,7 +647,7 @@ body.light-theme .theme-toggle .fa-moon {
 }
 
 .gauge-unit {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: var(--font-weight-medium);
     color: rgba(255, 255, 255, 0.8);
     margin-top: 0.5rem;
@@ -1360,6 +1360,10 @@ body.light-theme .theme-toggle .fa-moon {
         justify-content: center;
     }
 
+    .hero-actions {
+        justify-content: center;
+    }
+
     .footer-grid {
         grid-template-columns: 1fr 1fr;
     }
@@ -1384,7 +1388,7 @@ body.light-theme .theme-toggle .fa-moon {
     }
 
     .gauge-value {
-        font-size: 3.2rem;
+        font-size: 4.5rem;
     }
 
     .swiper-button-next,
@@ -1434,7 +1438,7 @@ body.light-theme .theme-toggle .fa-moon {
     }
 
     .gauge-value {
-        font-size: 2.8rem;
+        font-size: 3.5rem;
     }
 
     .hamburger {
@@ -1551,7 +1555,7 @@ body.light-theme .theme-toggle .fa-moon {
     }
 
     .gauge-value {
-        font-size: 2.2rem;
+        font-size: 2.8rem;
     }
 
     .advantages-grid,
